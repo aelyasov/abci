@@ -1,0 +1,209 @@
+<!-- Parsing swf file:/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/boogie_test/Test1.swf -->
+<!-- ?xml version="1.0" encoding="UTF-8"? -->
+<swf xmlns='http://macromedia/2003/swfx' version='14' framerate='24' size='10000x7500' compressed='true' >
+  <!-- framecount=1 length=1071 -->
+  <FileAttributes useDirectBlit='false' useGPU='false' hasMetadata='true' actionScript3='true' suppressCrossDomainCaching='false' swfRelativeUrls='false' useNetwork='true'/>
+  <Metadata>
+    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jul 21, 2013</dc:date></rdf:Description></rdf:RDF>
+  </Metadata>
+  <ScriptLimits scriptRecursionLimit='1000' scriptTimeLimit='60'/>
+  <SetBackgroundColor color='#FFFFFF'/>
+  <ProductInfo product='Adobe Flex' edition='' version='4.6' build='23201' compileDate='7/21/13 9:03 PM'/>
+  <FrameLabel label='Test1'/>
+  <DoABC2>
+    16 0 minor version
+    46 0 major version
+    0 Integer Constant Pool Entries
+    0 Unsigned Integer Constant Pool Entries
+    0 Floating Point Constant Pool Entries
+    24 String Constant Pool Entries
+     
+     void
+     int
+     String
+     Test1
+     flash.display
+     Sprite
+     xoo
+     Boolean
+     prv
+     foo
+     s
+     sstr
+     Error
+     e
+     p
+     y
+     Object
+     flash.events
+     EventDispatcher
+     DisplayObject
+     InteractiveObject
+     DisplayObjectContainer
+    7 Namespace Constant Pool Entries
+     
+     flash.display
+     Test1
+     private
+     
+     flash.events
+    0 Namespace Set Constant Pool Entries
+    20 MultiName Constant Pool Entries
+    :void
+    :int
+    :String
+    :Test1
+    flash.display:Sprite
+    :xoo
+    :Boolean
+    private:prv
+    :foo
+    :s
+    :Error
+    :e
+    :p
+    :y
+    :Object
+    flash.events:EventDispatcher
+    flash.display:DisplayObject
+    flash.display:InteractiveObject
+    flash.display:DisplayObjectContainer
+    4 Method Entries
+    no name(): 
+    no name()::void 
+    no name(:String)::int 
+    no name(): 
+    0 Metadata Entries
+    1 Instance Entries
+    :Test1 extends flash.display:Sprite 
+    3 Traits Entries
+    :xoo
+    private:prv
+    :foo
+    1 Class Entries
+    :Test1 extends Class 
+    1 Traits Entries
+    :s
+    1 Script Entries
+    script0 
+    1 Traits Entries
+    :Test1
+    4 Method Bodies
+    function :Test1:::Test1$cinit():
+    maxStack:2 localCount:1 initScopeDepth:8 maxScopeDepth:9
+        getlocal0     	
+        pushscope     	
+        findproperty  	:s
+        pushstring    	"sstr"
+        setproperty   	:s
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function :Test1:::Test1()::void
+    maxStack:2 localCount:1 initScopeDepth:9 maxScopeDepth:10
+        getlocal0     	
+        pushscope     	
+        getlocal0     	
+        constructsuper	(0)
+        getlocal0     	
+        pushbyte      	-1
+        initproperty  	private:prv
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function :Test1:::foo(:String)::int
+    maxStack:3 localCount:4 initScopeDepth:10 maxScopeDepth:15
+        getlocal0     	
+        pushscope     	
+        newactivation 	
+        dup           	
+        setlocal2     	
+        pushscope     	
+        getscopeobject	1
+        getlocal1     	
+        setslot       	1
+        getscopeobject	1
+        pushbyte      	100
+        setslot       	2
+        getlocal0     	
+        getproperty   	:xoo
+        iffalse       	L0
+
+        getscopeobject	1
+        getslot       	2
+        pushbyte      	0
+        ifngt         	L1
+
+        getscopeobject	1
+        pushbyte      	1
+        setslot       	2
+        jump          	L2
+    L1: getscopeobject	1
+        pushbyte      	0
+        setslot       	2
+    L2: jump          	L3
+    L0: getscopeobject	1
+        pushbyte      	3
+        setslot       	2
+    L3: jump          	L4
+
+        getlocal0     	
+        pushscope     	
+        getlocal2     	
+        pushscope     	
+        newcatch      	0
+        dup           	
+        setlocal3     	
+        dup           	
+        pushscope     	
+        swap          	
+        setslot       	1
+        popscope      	
+        kill          	3
+    L4: getscopeobject	1
+        getslot       	2
+        returnvalue   	
+    1 Extras
+    :e type::Error from:17 to:60 target:64
+    2 Traits Entries
+    :p
+    :y
+
+    function script0::script0$init():
+    maxStack:2 localCount:1 initScopeDepth:1 maxScopeDepth:8
+        getlocal0     	
+        pushscope     	
+        getscopeobject	0
+        getlex        	:Object
+        pushscope     	
+        getlex        	flash.events:EventDispatcher
+        pushscope     	
+        getlex        	flash.display:DisplayObject
+        pushscope     	
+        getlex        	flash.display:InteractiveObject
+        pushscope     	
+        getlex        	flash.display:DisplayObjectContainer
+        pushscope     	
+        getlex        	flash.display:Sprite
+        pushscope     	
+        getlex        	flash.display:Sprite
+        newclass      	:Test1
+        popscope      	
+        popscope      	
+        popscope      	
+        popscope      	
+        popscope      	
+        popscope      	
+        initproperty  	:Test1
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+  </DoABC2>
+  <SymbolClass>
+    <Symbol idref='0' className='Test1' />
+  </SymbolClass>
+  <ShowFrame/>
+</swf>

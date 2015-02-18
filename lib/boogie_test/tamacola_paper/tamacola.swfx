@@ -1,0 +1,233 @@
+<!-- Parsing swf file:/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/boogie_test/./tamacola_paper/Main.swf -->
+<!-- ?xml version="1.0" encoding="UTF-8"? -->
+<swf xmlns='http://macromedia/2003/swfx' version='14' framerate='24' size='10000x7500' compressed='true' >
+  <!-- framecount=1 length=1018 -->
+  <FileAttributes useDirectBlit='false' useGPU='false' hasMetadata='true' actionScript3='true' suppressCrossDomainCaching='false' swfRelativeUrls='false' useNetwork='true'/>
+  <Metadata>
+    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Aug 9, 2013</dc:date></rdf:Description></rdf:RDF>
+  </Metadata>
+  <ScriptLimits scriptRecursionLimit='1000' scriptTimeLimit='60'/>
+  <SetBackgroundColor color='#FFFFFF'/>
+  <ProductInfo product='Adobe Flex' edition='' version='4.6' build='23201' compileDate='8/9/13 11:10 AM'/>
+  <FrameLabel label='Main'/>
+  <DoABC2>
+    16 0 minor version
+    46 0 major version
+    2 Integer Constant Pool Entries
+    10
+    0 Unsigned Integer Constant Pool Entries
+    0 Floating Point Constant Pool Entries
+    17 String Constant Pool Entries
+     
+     void
+     int
+     Main
+     Object
+     TEST
+     v
+     String
+     testvar
+     Obj
+     f
+     h
+     x
+     Function
+     y
+     g
+    5 Namespace Constant Pool Entries
+     
+     Main
+     
+     Obj
+    2 Namespace Set Constant Pool Entries
+    16 MultiName Constant Pool Entries
+    :void
+    :int
+    :Main
+    :Object
+    :TEST
+    :v
+    :String
+    :Obj
+    :f
+    :h
+    :x
+    :Function
+    :y
+    :g
+    :Obj
+    10 Method Entries
+    no name(): 
+    no name()::void 
+    no name(): 
+    no name(): 
+    no name(:int)::void 
+    no name(:int,:int)::void 
+    no name(): 
+    no name(): 
+    no name(:int,:int)::void 
+    no name(): 
+    0 Metadata Entries
+    2 Instance Entries
+    :Main extends :Object 
+    2 Traits Entries
+    :TEST
+    :v
+    :Obj extends :Object 
+    1 Traits Entries
+    :f
+    2 Class Entries
+    :Main extends Class 
+    0 Traits Entries
+    :Obj extends Class 
+    0 Traits Entries
+    3 Script Entries
+    script0 
+    1 Traits Entries
+    :Main
+    script1 
+    1 Traits Entries
+    :Obj
+    script2 
+    1 Traits Entries
+    :h
+    10 Method Bodies
+    function :Main:::Main$cinit():
+    maxStack:1 localCount:1 initScopeDepth:3 maxScopeDepth:4
+        getlocal0     	
+        pushscope     	
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function :Main:::Main()::void
+    maxStack:3 localCount:2 initScopeDepth:4 maxScopeDepth:5
+        getlocal0     	
+        pushscope     	
+        getlocal0     	
+        constructsuper	(0)
+        findpropstrict	:Obj
+        constructprop 	:Obj (0)
+        coerce        	:Obj
+        setlocal1     	
+        getlocal1     	
+        getlocal0     	
+        getproperty   	:TEST
+        pushbyte      	20
+        callpropvoid  	:f (2)
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function script0::script0$init():
+    maxStack:2 localCount:1 initScopeDepth:1 maxScopeDepth:3
+        getlocal0     	
+        pushscope     	
+        getscopeobject	0
+        getlex        	:Object
+        pushscope     	
+        getlex        	:Object
+        newclass      	:Main
+        popscope      	
+        initproperty  	:Main
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function :Obj:::Obj$cinit():
+    maxStack:1 localCount:1 initScopeDepth:3 maxScopeDepth:4
+        getlocal0     	
+        pushscope     	
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    var null::no name(:int)::void
+    maxStack:3 localCount:2 initScopeDepth:5 maxScopeDepth:5
+        findpropstrict	:h
+        getlex        	:x
+        pushbyte      	30
+        callproperty  	:h (2)
+        returnvalue   	
+    0 Extras
+    0 Traits Entries
+
+    function :Obj:::f(:int, :int)::void
+    maxStack:3 localCount:4 initScopeDepth:5 maxScopeDepth:7
+        getlocal0     	
+        pushscope     	
+        newactivation 	
+        dup           	
+        setlocal3     	
+        pushscope     	
+        getscopeobject	1
+        getlocal1     	
+        setslot       	1
+        getscopeobject	1
+        getlocal2     	
+        setslot       	2
+        getscopeobject	1
+        newfunction   	no name
+        coerce        	:Function
+        setslot       	3
+        getscopeobject	1
+        getslot       	3
+        getglobalscope	
+        getscopeobject	1
+        getslot       	2
+        call          	(1)
+        pop           	
+        returnvoid    	
+    0 Extras
+    3 Traits Entries
+    :x
+    :y
+    :g
+
+    function :Obj:::Obj():
+    maxStack:1 localCount:1 initScopeDepth:4 maxScopeDepth:5
+        getlocal0     	
+        pushscope     	
+        getlocal0     	
+        constructsuper	(0)
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function script1::script1$init():
+    maxStack:2 localCount:1 initScopeDepth:1 maxScopeDepth:3
+        getlocal0     	
+        pushscope     	
+        findpropstrict	:Obj
+        getlex        	:Object
+        pushscope     	
+        getlex        	:Object
+        newclass      	:Obj
+        popscope      	
+        initproperty  	:Obj
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function script2:::h(:int, :int)::void
+    maxStack:1 localCount:3 initScopeDepth:1 maxScopeDepth:2
+        getlocal0     	
+        pushscope     	
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+    function script2::script2$init():
+    maxStack:1 localCount:1 initScopeDepth:1 maxScopeDepth:2
+        getlocal0     	
+        pushscope     	
+        returnvoid    	
+    0 Extras
+    0 Traits Entries
+
+  </DoABC2>
+  <SymbolClass>
+    <Symbol idref='0' className='Main' />
+  </SymbolClass>
+  <ShowFrame/>
+</swf>

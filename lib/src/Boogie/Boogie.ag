@@ -1,0 +1,386 @@
+MODULE {Boogie.Boogie} {swfToBoogie, swfPropLookup} {}
+
+--INCLUDE "Options/PPCFG.ag"
+
+-- INCLUDE "ByteCode/Ast.ag"
+-- INCLUDE "Distribute/Context.ag"
+-- INCLUDE "Distribute/SymbolTables.ag"
+INCLUDE "Pretty/AVMTree.ag"
+
+imports
+{
+import ByteCode.ByteCode
+import Util.ProgInfo
+import Options.Options
+-- import Pretty.AVMUtil 
+
+import Language.Boogie.Position (gen)
+import Language.Boogie.PrettyPrinter (programDoc)
+import Language.Boogie.AST
+
+import Data.Monoid (mempty, mappend, Monoid (..))
+
+
+import Data.Monoid (mempty, mappend)
+import Data.ByteString.Lazy(ByteString)
+import qualified Data.ByteString.Lazy as B
+import Data.Map(Map)
+import qualified Data.Map as Map
+import Data.Set(Set)
+import Data.IntMap(IntMap)
+import Data.IntSet(IntSet)
+import qualified Data.IntMap as IntMap
+import qualified Data.Set as Set
+import qualified Data.IntSet as IntSet
+import Data.Word
+
+
+import Debug.Trace
+}
+
+WRAPPER SwfFile
+WRAPPER AbcFile
+
+{
+swfToBoogie :: Options -> [SymbolTables] -> [MethodDefInfos] -> SwfFile -> Doc
+swfToBoogie opts tbls definfos swf =  programDoc out where
+  inh = Inh_SwfFile { opts_Inh_SwfFile     = opts
+      		    , tbls_Inh_SwfFile     = tbls
+		    , defInfos_Inh_SwfFile = definfos
+		    }
+  sem = sem_SwfFile swf
+  syn = wrap_SwfFile sem inh
+  out = bprog_Syn_SwfFile syn
+
+swfPropLookup :: Options -> [SymbolTables] -> [MethodDefInfos]-> SwfFile -> PropLookupTable
+swfPropLookup opts tbls definfos swf = out where
+  inh = Inh_SwfFile { opts_Inh_SwfFile     = opts 
+      		    , tbls_Inh_SwfFile     = tbls
+		    , defInfos_Inh_SwfFile = definfos
+		    }
+  sem = sem_SwfFile swf
+  syn = wrap_SwfFile sem inh
+  out = tpInfos_Syn_SwfFile syn
+
+-- abcToBoogie :: Options -> [SymbolTables] -> [MethodDefInfo] -> AbcFile -> Doc
+-- abcToBoogie opts tbls definfos abc = out where
+--   inh = Inh_AbcFile { opts_Inh_AbcFile        = opts, 
+--                       tbls_Inh_AbcFile        = tbls, 
+--                       defInfos_Inh_AbcFile    = definfos,
+--                       unqBlockIds_Inh_AbcFile = startingBlockId,
+-- 		      distObjCtx_Inh_AbcFile  = Map.empty
+--                       }
+--   -- just setting initial block-id to 1
+--   startingBlockId = 1
+--   sem = sem_AbcFile abc 
+--   syn = wrap_AbcFile sem inh
+--   out = output_Syn_AbcFile syn
+}
+
+
+{
+instance Monoid Program where
+  mempty = Program []
+  (Program p1) `mappend` (Program p2) = Program (p1 ++ p2)
+
+mkProgram :: [BareDecl] -> Program
+mkProgram = Program . map gen 
+
+mkIdTypeWhere :: String -> String -> IdTypeWhere
+mkIdTypeWhere vname vtype = IdTypeWhere vname (IdType vtype []) (gen TT)
+
+mkVarAssign :: [String] -> String -> String -> Block
+mkVarAssign lbs vname rhs = [gen (lbs, gen $ Assign [(vname,[])] [gen $ Var rhs])]
+-- gen :: a -> Pos a
+}
+
+
+-- ATTR SwfTags AbcFile InstanceInfos InstanceInfo  
+--   [| | bprog USE {`mappend`} {mempty} : Program]
+ 
+
+ATTR SwfFile [ | | tpInfos : {PropLookupTable}]
+
+SEM SwfFile 
+  | File lhs.tpInfos = symTbl2PropLookupTbl @lhs.tbls
+
+
+ATTR SwfTags AbcFile InstanceInfos InstanceInfo BodyInfos BodyInfo InstructionsLike InstructionLike  
+  [| | bprog USE {`mappend`} {mempty} : Program]
+
+SEM SwfFile
+  | File lhs.bprog = mkProgram [ @loc.refType
+    	 	     	       , @loc.fieldType
+			       , @loc.heapType
+			       , @loc.classNameType
+			       , @loc.nullConst
+			       , @loc.undefConst
+			       , @loc.heapVar
+			       , @loc.isGoodHeapFun 
+			       ] `mappend` @tags.bprog
+         loc.refType    = TypeDecl [NewType "ref" [] Nothing]
+	 loc.fieldType  = TypeDecl [NewType "Field" ["alpha"] Nothing]
+	 loc.heapType   = TypeDecl [NewType "HeapType" [] (Just (MapType ["alpha"] [IdType "ref" [], IdType "Field" [IdType "alpha" []]] (IdType "alpha" [])))]
+	 loc.classNameType    = TypeDecl [NewType "ClassName" [] Nothing]		  
+	 loc.nullConst  = ConstantDecl False ["null"] (IdType "ref" []) Nothing False
+	 loc.undefConst = ConstantDecl False ["undefined"] (IdType "ref" []) Nothing False
+	 loc.heapVar    = VarDecl [IdTypeWhere "$Heap" (IdType "HeapType" []) (gen $ Application "$IsGoodHeap" [gen $ Var "$Heap"])]
+	 loc.isGoodHeapFun = FunctionDecl "$IsGoodHeap" [] [(Nothing, IdType "HeapType" [])] (Nothing, BoolType) Nothing      
+
+
+SEM InstanceInfo 
+  | Info lhs.bprog    = mkProgram [@loc.cls2bcon]
+         loc.clsname  = qnameToIdent $ classQName @lhs.tbls (Ref @lhs.index)
+	 loc.sclass   = case spClassQName @lhs.tbls (Ref @lhs.index) of
+	 	          Nothing -> "Object"
+			  Just qn -> qnameToIdent qn
+         loc.cls2bcon = ConstantDecl True [@loc.clsname] (IdType "ClassName" []) (Just [(True, @loc.sclass)]) False
+
+
+ATTR BodyInfo BodyInfos [length : Int| |]
+SEM BodyInfos
+  | Cons hd.length = @tl.length
+--    	 tl.length = trace ("inh tl: " ++ show @hd.length) @hd.length
+
+SEM BodyInfo 
+  | Info lhs.bprog  = (mkProgram [@loc.procedure, @loc.implement]) -- `mappend` @instructions.bprog
+    	 loc.procedure = ProcedureDecl @loc.pname [] @loc.allpargs @loc.preturn @loc.pcontr @loc.pbody
+         loc.pname  = if @lhs.bodyId == 0 
+	 	      then "$cinit" 
+		      else if @lhs.length == 0
+		      	   then "$iinit"
+			   else show . parentsToMethodName $ @loc.ctxParents
+	 loc.pthis  = mkIdTypeWhere "this" "ref" 
+	 loc.msig   = lookupMethod (Ref @method) @lhs.tbls
+	 loc.params = sigParams @loc.msig
+	 loc.pargs  = let getPType tp = nameToKey1 @lhs.tbls $ spType tp
+	 		  ptypes      = map getPType @loc.params
+			  pnames      = zipWith (\p i -> p ++ show i) 
+			 	       	        (repeat "param") [0 ..]
+	 	      in  zipWith mkIdTypeWhere pnames ptypes 
+	 loc.allpargs  = @loc.pthis : @loc.pargs	
+	 loc.preturn   = [] -- what to return?
+	 loc.pcontr    = [Modifies False ["$Heap"]]
+	 loc.pbody     = Nothing
+	 loc.implement = ImplementationDecl @loc.pname [] @loc.alliargs @loc.ireturn @loc.ibody
+	 loc.alliargs  = map noWhere @loc.allpargs
+	 loc.ireturn   = map noWhere @loc.preturn
+	 loc.ibody     = [(filter (not . null) [  @loc.opstack_rs
+	 	       	 	       	       ,  @loc.opstack_is
+			   	       	       ,  @loc.scstack_rs
+				       	       ,  @loc.scstack_is
+			   	       	       ,  @loc.reg_rs
+			   	       	       ,  @loc.reg_is
+			   	       	       ], @instructions.bstmts)]
+	 loc.opstLen   = fromIntegral @maxStack - 1
+	 loc.opstack_rs = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "opstr")  [0 .. @loc.opstLen]
+	 		  in  map (flip mkIdTypeWhere "ref") vnames
+	 loc.opstack_is = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "opsti")  [0 .. @loc.opstLen]
+	 		  in  map (flip mkIdTypeWhere "int") vnames
+	 loc.scInDep    = fromIntegral @initScopeDepth - 1
+	 loc.scMxDep    = fromIntegral @maxScopeDepth  - 1	  		  
+	 loc.scstack_rs = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "scstr")  
+					       [@loc.scInDep .. @loc.scMxDep]
+	 		  in  map (flip mkIdTypeWhere "ref") vnames
+	 loc.scstack_is = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "scsti")  
+					       [@loc.scInDep .. @loc.scMxDep]
+	 		  in  map (flip mkIdTypeWhere "int") vnames
+	 loc.lregLen	= fromIntegral @localCount - 1	  
+	 loc.reg_rs     = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "regr")  [0 .. @loc.lregLen]
+	 		  in  map (flip mkIdTypeWhere "ref") vnames
+	 loc.reg_is     = let vnames = zipWith (\s i -> s ++ show i) 
+	 		      	       	       (repeat "regi")  [0 .. @loc.lregLen]
+	 		  in  map (flip mkIdTypeWhere "int") vnames 
+	 
+	 -- if (@maxStack == 0) then (trace "then" -1) else (@maxStack - 1)
+
+
+
+ATTR InstructionLike InstructionsLike [| | bstmts USE {++} {[]} : Block]
+SEM Instruction
+  -- | * - Virtual Add ConstructSuper Convert_i GetLocal0 GetLocal2 IfNGt InitProperty Jump PushByte PushFalse PushScope PushTrue ReturnValue ReturnVoid SetLocal2 GetLex GetScopeObject PopScope GetProperty FindPropStrict NewClass
+--       		             lhs.bstmts = []   
+  | Add                      lhs.bstmts = [gen (["Add"], gen Skip)]
+  | Add_i                    lhs.bstmts = [gen (["Add_i"], gen Skip)]
+  | Add_d                    lhs.bstmts = [gen (["Add_d"], gen Skip)]
+  | ApplyType                lhs.bstmts = [gen (["ApplyType"], gen Skip)]
+  | AsType                   lhs.bstmts = [gen (["AsType"], gen Skip)]
+  | AsTypeLate               lhs.bstmts = [gen (["AsTypeLate"], gen Skip)]
+  | Breakpoint               lhs.bstmts = [gen (["Breakpoint"], gen Skip)]
+  | BreakLine                lhs.bstmts = [gen (["BreakLine"], gen Skip)]  
+  | BitAnd                   lhs.bstmts = [gen (["BitAnd"], gen Skip)]
+  | BitNot                   lhs.bstmts = [gen (["BitNot"], gen Skip)]
+  | BitOr                    lhs.bstmts = [gen (["BitOr"], gen Skip)]
+  | BitXor                   lhs.bstmts = [gen (["BitXor"], gen Skip)]
+  | Call                     lhs.bstmts = [gen (["Call"], gen Skip)]
+  | CallInterface            lhs.bstmts = [gen (["CallInterface"], gen Skip)]
+  | CallMethod               lhs.bstmts = [gen (["CallMethod"], gen Skip)]  
+  | CallProp                 lhs.bstmts = [gen (["CallProp"], gen Skip)]     
+  | CallPropLex              lhs.bstmts = [gen (["CallPropLex"], gen Skip)]  
+  | CallPropVoid             lhs.bstmts = [gen (["CallPropVoid"], gen Skip)]
+  | CallStatic               lhs.bstmts = [gen (["CallStatic"], gen Skip)]   
+  | CallSuper                lhs.bstmts = [gen (["CallSuper"], gen Skip)]    
+  | CallSuperId              lhs.bstmts = [gen (["CallSuperId"], gen Skip)]
+  | CallSuperVoid            lhs.bstmts = [gen (["CallSuperVoid"], gen Skip)]
+  | CheckFilter              lhs.bstmts = [gen (["CheckFilter"], gen Skip)]
+  | Coerce                   lhs.bstmts = [gen (["Coerce"], gen Skip)]       
+  | Coerce_a                 lhs.bstmts = [gen (["Coerce_a"], gen Skip)]
+  | Coerce_b                 lhs.bstmts = [gen (["Coerce_b"], gen Skip)]
+  | Coerce_d                 lhs.bstmts = [gen (["Coerce_d"], gen Skip)]
+  | Coerce_i                 lhs.bstmts = [gen (["Coerce_i"], gen Skip)]
+  | Coerce_o                 lhs.bstmts = [gen (["Coerce_o"], gen Skip)]
+  | Coerce_s                 lhs.bstmts = [gen (["Coerce_s"], gen Skip)]
+  | Coerce_u                 lhs.bstmts = [gen (["Coerce_u"], gen Skip)]
+  | Concat                   lhs.bstmts = [gen (["Concat"], gen Skip)]
+  | Construct                lhs.bstmts = [gen (["Construct"], gen Skip)]    
+  | ConstructProp            lhs.bstmts = [gen (["ConstructProp"], gen Skip)]
+  | ConstructSuper           lhs.bstmts = [gen (["ConstructorSuper"], gen Skip)]
+  | Convert_b                lhs.bstmts = [gen (["Convert_b"], gen Skip)]
+  | Convert_i                lhs.bstmts = [gen (["Convert_i"], gen Skip)]
+  | Convert_d                lhs.bstmts = [gen (["Convert_d"], gen Skip)]
+  | Convert_o                lhs.bstmts = [gen (["Convert_o"], gen Skip)]
+  | Convert_u                lhs.bstmts = [gen (["Convert_u"], gen Skip)]
+  | Convert_s                lhs.bstmts = [gen (["Convert_s"], gen Skip)]
+  | Debug                    lhs.bstmts = [gen (["Debug"], gen Skip)]         
+  | DebugFile                lhs.bstmts = [gen (["DebugFile"], gen Skip)]     
+  | DebugLine                lhs.bstmts = [gen (["DebugLine"], gen Skip)]     
+  | DecLocal                 lhs.bstmts = [gen (["DecLocal"], gen Skip)]     
+  | DecLocal_i               lhs.bstmts = [gen (["DecLocal_i"], gen Skip)]    
+  | Decrement                lhs.bstmts = [gen (["Decrement"], gen Skip)]
+  | Decrement_i              lhs.bstmts = [gen (["Decrement_i"], gen Skip)]
+  | DeleteProperty           lhs.bstmts = [gen (["DeleteProperty"], gen Skip)] 
+  | DeletePropertyLate       lhs.bstmts = [gen (["DeletePropertyLate"], gen Skip)]
+  | Divide                   lhs.bstmts = [gen (["Divide"], gen Skip)]
+  | Dup                      lhs.bstmts = [gen (["Dup"], gen Skip)]
+  | Dxns                     lhs.bstmts = [gen (["Dxns"], gen Skip)]   
+  | DxnsLate                 lhs.bstmts = [gen (["DxnsLate"], gen Skip)]
+  | Equals                   lhs.bstmts = [gen (["Equals"], gen Skip)]
+  | EscXAttr                 lhs.bstmts = [gen (["EscXAttr"], gen Skip)]
+  | EscXElem                 lhs.bstmts = [gen (["EscXElem"], gen Skip)]
+  | FindDef                  lhs.bstmts = [gen (["FindDef"], gen Skip)]
+  | FindPropertyGlobalStrict lhs.bstmts = [gen (["FindPropertyGlobalStrict"], gen Skip)]
+  | FindPropertyGlobal       lhs.bstmts = [gen (["FindPropertyGlobal"], gen Skip)]
+  | FindProperty             lhs.bstmts = [gen (["FindProperty"], gen Skip)]   
+  | FindPropStrict           lhs.bstmts = [gen (["FindPropStrict"], gen Skip)]
+  | GetDescendants           lhs.bstmts = [gen (["GetDescendants"], gen Skip)]
+  | GetGlobalScope           lhs.bstmts = [gen (["GetGlobalScope"], gen Skip)]
+  | GetGlobalSlot            lhs.bstmts = [gen (["GetGlobalSlot"], gen Skip)]
+  | GetLex                   lhs.bstmts = [gen (["GetLex"], gen Skip)]
+  | GetLocal                 lhs.bstmts = [gen (["GetLocal"], gen Skip)]     
+--  check out that @lhs.defInfos gives the current size of the stack	
+  | GetLocal0                lhs.bstmts = mkVarAssign ["GetLocal0"] ("opstr" ++ @loc.lenOpSt (-1)) "regr0"
+  | GetLocal1                lhs.bstmts = [gen (["GetLocal1"], gen Skip)]
+  | GetLocal2                lhs.bstmts = [gen (["GetLocal2"], gen Skip)]
+  | GetLocal3                lhs.bstmts = [gen (["GetLocal3"], gen Skip)]
+  | GetOuterScope            lhs.bstmts = [gen (["GetOuterScope"], gen Skip)] 
+  | GetProperty              lhs.bstmts = [gen (["GetProperty"], gen Skip)]   
+  | GetScopeObject           lhs.bstmts = mkVarAssign ["GetScopeObject"] ("opstr" ++ @loc.lenScSt (-1)) ("scstr" ++ show @index)
+  | GetSlot                  lhs.bstmts = [gen (["GetSlot"], gen Skip)]       
+  | GetSuper                 lhs.bstmts = [gen (["GetSuper"], gen Skip)]      
+  | GreaterEquals            lhs.bstmts = [gen (["GreaterEquals"], gen Skip)]
+  | GreaterThan              lhs.bstmts = [gen (["GreaterThan"], gen Skip)]
+  | HasNext                  lhs.bstmts = [gen (["HasNext"], gen Skip)]
+  | HasNext2                 lhs.bstmts = [gen (["HasNext2"], gen Skip)]      
+  | IfEq                     lhs.bstmts = [gen (["IfEq"], gen Skip)]          
+  | IfFalse                  lhs.bstmts = [gen (["IfFalse"], gen Skip)] 
+  | IfGe                     lhs.bstmts = [gen (["IfGe"], gen Skip)]  
+  | IfGt                     lhs.bstmts = [gen (["IfGt"], gen Skip)]  
+  | IfLe                     lhs.bstmts = [gen (["IfLe"], gen Skip)]  
+  | IfLt                     lhs.bstmts = [gen (["IfLt"], gen Skip)]  
+  | IfNGe                    lhs.bstmts = [gen (["IfNGe"], gen Skip)] 
+  | IfNGt                    lhs.bstmts = [gen (["IfNGt"], gen Skip)]  
+  | IfNLe                    lhs.bstmts = [gen (["IfNLe"], gen Skip)] 
+  | IfNLt                    lhs.bstmts = [gen (["IfNLt"], gen Skip)] 
+  | IfNe                     lhs.bstmts = [gen (["IfNe"], gen Skip)] 
+  | IfStrictEq               lhs.bstmts = [gen (["IfStrictEq"], gen Skip)]
+  | IfStrictNe               lhs.bstmts = [gen (["IfStrictNe"], gen Skip)]
+  | IfTrue                   lhs.bstmts = [gen (["IfTrue"], gen Skip)]   
+  | In                       lhs.bstmts = [gen (["In"], gen Skip)]
+  | IncLocal                 lhs.bstmts = [gen (["IncLocal"], gen Skip)] 
+  | IncLocal_i               lhs.bstmts = [gen (["IncLocal_i"], gen Skip)]
+  | Increment                lhs.bstmts = [gen (["Increment"], gen Skip)]
+  | Increment_i              lhs.bstmts = [gen (["Increment_i"], gen Skip)]
+  | InitProperty             lhs.bstmts = [gen (["InitProperty"], gen Skip)]
+  | InstanceOf               lhs.bstmts = [gen (["InstanceOf"], gen Skip)]
+  | IsType                   lhs.bstmts = [gen (["IsType"], gen Skip)]      
+  | IsTypeLate               lhs.bstmts = [gen (["IsTypeLate"], gen Skip)]
+  | Jump                     lhs.bstmts = [gen (["Jump"], gen Skip)]       
+  | Kill                     lhs.bstmts = [gen (["Kill"], gen Skip)]        
+  | Label                    lhs.bstmts = [gen (["Label"], gen Skip)]
+  | LessEquals               lhs.bstmts = [gen (["LessEquals"], gen Skip)]
+  | LessThan                 lhs.bstmts = [gen (["LessThan"], gen Skip)]
+  | LoadFloat32              lhs.bstmts = [gen (["LoadFloat32"], gen Skip)]
+  | LoadFloat64              lhs.bstmts = [gen (["LoadFloat64"], gen Skip)]
+  | LoadIndirect8            lhs.bstmts = [gen (["LoadIndirect8"], gen Skip)]
+  | LoadIndirect16           lhs.bstmts = [gen (["LoadIndirect16"], gen Skip)]
+  | LoadIndirect32           lhs.bstmts = [gen (["LoadIndirect32"], gen Skip)]
+  | LookupSwitch             lhs.bstmts = [gen (["LookupSwitch"], gen Skip)]
+  | Lshift                   lhs.bstmts = [gen (["Lshift"], gen Skip)]
+  | Modulo                   lhs.bstmts = [gen (["Modulo"], gen Skip)]
+  | Multiply                 lhs.bstmts = [gen (["Multiply"], gen Skip)]
+  | Multiply_i               lhs.bstmts = [gen (["Multiply_i"], gen Skip)]
+  | Negate                   lhs.bstmts = [gen (["Negate"], gen Skip)]
+  | Negate_i                 lhs.bstmts = [gen (["Negate_i"], gen Skip)]
+  | NewActivation            lhs.bstmts = [gen (["NewActivation"], gen Skip)]
+  | NewArray                 lhs.bstmts = [gen (["NewArray"], gen Skip)]    
+  | NewCatch                 lhs.bstmts = [gen (["NewCatch"], gen Skip)]    
+  | NewClass                 lhs.bstmts = [gen (["NewClass"], gen Skip)]      
+  | NewFunction              lhs.bstmts = [gen (["NewFunction"], gen Skip)]
+  | NewObject                lhs.bstmts = [gen (["NewObject"], gen Skip)]
+  | NextName                 lhs.bstmts = [gen (["NextName"], gen Skip)]
+  | NextValue                lhs.bstmts = [gen (["NextValue"], gen Skip)]
+  | Nop                      lhs.bstmts = [gen (["Nop"], gen Skip)]
+  | Not                      lhs.bstmts = [gen (["Not"], gen Skip)]
+  | Pop                      lhs.bstmts = [gen (["Pop"], gen Skip)]
+  | PopScope                 lhs.bstmts = [gen (["PopScope"], gen Skip)]
+  | PushByte                 lhs.bstmts = [gen (["PushByte"], gen Skip)] 
+  | PushDouble               lhs.bstmts = [gen (["PushDouble"], gen Skip)]
+  | PushFalse                lhs.bstmts = [gen (["PushFalse"], gen Skip)]
+  | PushInt                  lhs.bstmts = [gen (["PushInt"], gen Skip)]  
+  | PushNamespace            lhs.bstmts = [gen (["PushNamespace"], gen Skip)] 
+  | PushNaN                  lhs.bstmts = [gen (["PushNaN"], gen Skip)]
+  | PushNull                 lhs.bstmts = [gen (["PushNull"], gen Skip)]
+  | PushScope                lhs.bstmts = mkVarAssign ["PushScope"] ("scstr" ++ @loc.lenScSt (-1)) ("opstr" ++ @loc.lenOpSt 0)
+  | PushShort                lhs.bstmts = [gen (["PushShort"], gen Skip)]  
+  | PushString               lhs.bstmts = [gen (["PushString"], gen Skip)] 
+  | PushTrue                 lhs.bstmts = [gen (["PushTrue"], gen Skip)]
+  | PushUInt                 lhs.bstmts = [gen (["PushUInt"], gen Skip)]   
+  | PushUndefined            lhs.bstmts = [gen (["PushUndefined"], gen Skip)]
+  | PushWith                 lhs.bstmts = [gen (["PushWith"], gen Skip)]
+  | ReturnValue              lhs.bstmts = [gen (["ReturnValue"], gen Skip)]
+  | ReturnVoid               lhs.bstmts = [gen (["ReturnVoid"], gen Skip)]
+  | Rshift                   lhs.bstmts = [gen (["Rshift"], gen Skip)]
+  | SetLocal                 lhs.bstmts = [gen (["SetLocal"], gen Skip)]   
+  | SetLocal0                lhs.bstmts = [gen (["SetLocal0"], gen Skip)]
+  | SetLocal1                lhs.bstmts = [gen (["SetLocal1"], gen Skip)]
+  | SetLocal2                lhs.bstmts = [gen (["SetLocal2"], gen Skip)]
+  | SetLocal3                lhs.bstmts = [gen (["SetLocal3"], gen Skip)]
+  | SetGlobalSlot            lhs.bstmts = [gen (["SetGlobalSlot"], gen Skip)]
+  | SetProperty              lhs.bstmts = [gen (["SetProperty"], gen Skip)]  
+  | SetPropertyLate          lhs.bstmts = [gen (["SetPropertyLate"], gen Skip)]
+  | SetSlot                  lhs.bstmts = [gen (["SetSlot"], gen Skip)]      
+  | SetSuper                 lhs.bstmts = [gen (["SetSuper"], gen Skip)]   
+  | SignExtend1              lhs.bstmts = [gen (["SignExtend1"], gen Skip)]
+  | SignExtend8              lhs.bstmts = [gen (["SignExtend8"], gen Skip)]
+  | SignExtend16             lhs.bstmts = [gen (["SignExtend16"], gen Skip)]
+  | StoreFloat32             lhs.bstmts = [gen (["SignExtend32"], gen Skip)]
+  | StoreFloat64             lhs.bstmts = [gen (["StoreFloat64"], gen Skip)]
+  | StoreIndirect32          lhs.bstmts = [gen (["StoreIndirect32"], gen Skip)]
+  | StoreIndirect16          lhs.bstmts = [gen (["StoreIndirect16"], gen Skip)]
+  | StoreIndirect8           lhs.bstmts = [gen (["StoreIndirect8"], gen Skip)]
+  | StrictEquals             lhs.bstmts = [gen (["StrictEquals"], gen Skip)]
+  | Substract                lhs.bstmts = [gen (["Substract"], gen Skip)]
+  | Substract_i              lhs.bstmts = [gen (["Substract_i"], gen Skip)]
+  | Swap                     lhs.bstmts = [gen (["Swap"], gen Skip)]
+  | Throw                    lhs.bstmts = [gen (["Throw"], gen Skip)]
+  | Timestamp                lhs.bstmts = [gen (["Timestamp"], gen Skip)]
+  | TypeOf                   lhs.bstmts = [gen (["TypeOf"], gen Skip)]
+  | Urshift                  lhs.bstmts = [gen (["Urshift"], gen Skip)]
+  | Virtual                  lhs.bstmts = []	
+  | *  loc.lenOpSt = \tr -> show (tr + (length (@lhs.defInfos !! 0)))
+       loc.lenScSt = \tr -> show (tr + (length (@lhs.defInfos !! 1))) 

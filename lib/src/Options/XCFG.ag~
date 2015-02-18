@@ -1,0 +1,282 @@
+--
+-- Build a block-based CFG. That is, the nodes in the CFG are
+-- block ids.
+--
+
+MODULE {XCFG} {exportCFG} {}
+
+INCLUDE "ByteCodeAst.ag"
+INCLUDE "ByteCodeBranchInfo.ag"
+INCLUDE "DistContext.ag"
+--INCLUDE "SymViewAst.ag"
+--INCLUDE "ByteCodeLocationInfo.ag"
+--INCLUDE "DistStackInfo.ag"
+--INCLUDE "NumberAstNodes.ag"
+
+imports
+{
+import Codec.Binary.UTF8.String
+import Data.ByteString.Lazy(ByteString,unpack)
+import Data.Word
+import Data.List (find, nub)
+import Data.Monoid (mappend, mempty)
+import ByteCode
+import Pretty.AVMUtil
+import Options
+import Debug.Trace
+
+--import Data.IntMap(IntMap)
+--import qualified Data.IntMap as IntMap
+--import SymView
+--import ProgInfo
+
+}
+
+WRAPPER SwfFile
+WRAPPER AbcFile
+
+{
+exportCFG :: Options -> [SymbolTables] -> SwfFile -> Doc
+exportCFG opts tbls swf = ppXCFGs out 
+  where
+  inh = Inh_SwfFile { 
+          opts_Inh_SwfFile = opts,    
+          tbls_Inh_SwfFile = tbls }
+  semf = sem_SwfFile swf
+  syn  = wrap_SwfFile semf inh
+  out  = xcfgs_Syn_SwfFile syn
+}
+
+{
+
+-- a simple type to represent a control flow graph
+type XCFGNode  = Int
+type XCFGEdge  = (Int,Int)
+data XCFG = XCFG { xcfg_mref   :: Word32,   -- function id
+                   xcfg_class  :: String,   -- class name
+                   xcfg_method :: String,   -- function name
+                   xcfg_nodes  :: [XCFGNode],
+                   xcfg_edges  :: [XCFGEdge] }
+    deriving Show
+
+-- pretty printer; produce DOT format
+ppXCFGs :: [XCFG] -> Doc
+ppXCFGs cfgs = vcat [ppXCFG c | c <- cfgs]
+
+ppXCFG (XCFG mid cname mname nodes edges) 
+     = 
+     (text "digraph" <+> doubleQuotes name <+> lbrace)
+                  $+$ nest 5 body
+                  $+$ rbrace
+                  $+$ empty                  
+     where
+     name    = text cname <> text "::" <> text mname 
+                          <> text " REF:" <> (text . show . toInteger $ mid)
+     
+     root_   = case nodes of
+                (r : _) ->  text (show r) <> text "[root=true, fillcolor=red]"
+                _       ->  error ("ppXCFG finds a BodyInfo that has no block!")
+                
+     nodes_  = hcat . punctuate spsemi $ [ text (show bid) | bid <- tail nodes ]
+     
+     edges_  = [ text (show x) <+> text "->" <+> text (show y)
+                   | (x,y) <- edges ]
+     
+     body = vcat . punctuate spsemi $ (root_ : nodes_ : edges_)     
+                                   
+spsemi = space <> semi
+                           
+}
+
+-- global options: .... dont't actually need it; but this is distributed
+-- anyway by DistContext.ag
+-- ATTR ... [ opts : Options | | ]
+
+-- symbol tables; this will be passed from the root, and need
+-- to be distributed everywhere:
+ATTR OnlySwfAbc [ | tbls : {[SymbolTables]} | ]
+ATTR AllAbc [ tbls : SymbolTables | | ]
+
+-- Associate a symbol table with the right abcfile in a SWF file
+SEM AbcFile | File
+  loc.tbls = head @lhs.tbls
+  lhs.tbls = if null @lhs.tbls
+             then error "XCFG: the number of symbol tables does not match the number of ABC components."
+             else tail @lhs.tbls
+             
+-- this is the result attribute, containing the CFGs
+ATTR OnlySwfAbc BodyInfos BodyInfo [ | | xcfgs USE {`mappend`} {mempty} : {[XCFG]} ]
+
+SEM BodyInfo | Info
+   lhs.xcfgs = let
+               cName = getClassName_ @lhs.tbls @loc.ctxParents
+               mName = showByteStr . qName . parentsToMethodName $ @loc.ctxParents
+               nodes = [ @lhs.unqBlockId .. (@instructions.unqBlockId - 1) ]
+               edges_ = @instructions.rawEdges
+               bidmap = @instructions.lab2blockMap
+               edges = constructEdges bidmap edges_
+                         --(trace ("bid map: " ++ show bidmap) bidmap)
+                         --(trace ("raw-edges: " ++ show edges_) edges_)  
+                       ++
+					   @instructions.edges
+                       --trace ("adj-edges: " ++ show @instructions.edges) @instructions.edges				   
+               cfg   = XCFG { xcfg_mref = @method , 
+                         xcfg_class = cName,
+                         xcfg_method = mName , 
+                         xcfg_nodes = nodes ,
+                         xcfg_edges = nub edges }
+               in
+               [cfg]
+               
+{
+constructEdges :: [(Int,Int)] -> [(Int,Int)] -> [XCFGEdge]
+constructEdges lab2blMap rawedges = concat [ decode e | e <- rawedges]
+   where
+   decode (x,y) = case decode_ y of
+                    Just by -> [(x,by)]
+                    _       -> error ("constructEdges: cannot find the block-id of some instr-lab "
+					                     ++ show (x,y))
+   decode_ y = do 
+               y_ <- find (\(l,b)-> l == y) lab2blMap
+               return (snd y_)
+               
+               
+-- to get the class name:
+getClassName_ symtbls currentParents 
+    = 
+    case currentParents of
+       (CtxParentsCons (CtxTrait (CtxObjClass clsref) _ _ _) _) 
+             ->  let 
+                 className_ = classQName symtbls clsref
+                 in 
+                 showByteStr (qName className_)
+       -- if no match return empty string:
+       _   -> ""
+}               
+               
+--
+-- Below are all the support attributes, and how they are computed...
+---
+
+-- The attribute below is used to collect the edges of the CFG. 
+-- We will collect two kind of edges: edges and raw-edges. An
+-- edge (s,t) is a pair or source and target in terms of block-id.
+--
+-- A raw-edge is a pair (sb,tl) where sb 
+-- is the source's block-id, and tl is the target's instruction 
+-- label. At branch points we can only collect raw-edges, because 
+-- the underlying branching calculation is label-based rather than 
+-- block-id based. In particular, the block-ids of the targets are not 
+-- directly exposed. 
+
+ATTR InstructionsLike InstructionLike  VirtKind
+     [ | | edges USE {`mappend`} {mempty} : {[XCFGEdge]} ]
+	 
+ATTR InstructionsLike InstructionLike  VirtKind
+     [ | | rawEdges USE {`mappend`} {mempty} : {[(Int,Int)]} ]
+     
+-- instruction labels and branch targets are stored at the LabInstruction
+-- level; we need pass it to the instruction level:
+ATTR Instruction VirtKind [ iLabel   : Int | | ]
+ATTR Instruction [ iTargets : {[Int]} | | ]
+
+SEM LabInstruction | Instr
+   instruction.iLabel   = @label
+   instruction.iTargets = @loc.targets
+    
+-- There are two cases of edges between blocks:
+--    (1) when a block ends with a jump, a branch instr, or a swicth. 
+--    (2) when a block simply continues to the next one
+--  The first case is handled below; we collect raw-edges.
+--  Case-2 is more tricky and is handled further below.  
+SEM Instruction | Jump LookupSwitch 
+                  IfEq IfFalse IfGe IfGt IfLe IfLt IfNGe IfNGt IfNLe 
+                  IfNLt IfNe IfStrictEq IfStrictNe IfTrue
+   loc.blockId  = @lhs.unqBlockId - 1
+   lhs.rawEdges = [ (@loc.blockId,y) | y <- @lhs.iTargets ] 
+
+   
+-- An edge is also added when a block goes naturally to the next one (case-2).
+-- In principle this can be identified by and End-block which is followed by
+-- a Begin-block, with flow altering instructions in between. But the underlying
+-- pre-processing does not always close a begin-block with an end-block.
+-- Alternatively, case-2 can be identified by two consecutive begin-blocks, with no
+-- flow altering instruction in between.   
+-- We will need some help-attributes to infer this. 
+
+ATTR InstructionLike VirtKind [ | | isBeginBlock  : Bool ]
+SEM Instruction 
+  | Virtual      lhs.isBeginBlock = @kind.isBeginBlock
+  | * - Virtual  lhs.isBeginBlock = False
+  
+SEM VirtKind 
+   | BeginBlock      lhs.isBeginBlock = True
+   | * - BeginBlock  lhs.isBeginBlock = False
+        
+	
+ATTR InstructionLike [ | | isFlowAltering  : Bool ]
+  
+SEM Instruction 
+    | Jump LookupSwitch 
+      IfEq IfFalse IfGe IfGt IfLe IfLt IfNGe IfNGt IfNLe 
+      IfNLt IfNe IfStrictEq IfStrictNe IfTrue  
+      Throw ReturnValue ReturnVoid
+	  lhs.isFlowAltering = True
+	| * - Jump LookupSwitch 
+      IfEq IfFalse IfGe IfGt IfLe IfLt IfNGe IfNGt IfNLe 
+      IfNLt IfNe IfStrictEq IfStrictNe IfTrue  
+      Throw ReturnValue ReturnVoid
+      lhs.isFlowAltering = False
+
+ 
+-- We are in a linear flow, if we have seen a begin-block, and no flow altering
+-- instruction upto now.	
+
+ATTR Instructions InstructionLike VirtKind [ isInLinearFlow : Bool | | ]
+SEM Instructions
+   | Nil   lhs.isInLinearFlow = @lhs.isInLinearFlow
+   | Cons  tl.isInLinearFlow  = @hd.isBeginBlock ||
+                                (@lhs.isInLinearFlow && not @hd.isFlowAltering)
+           hd.isInLinearFlow  = @lhs.isInLinearFlow
+		   
+SEM InstructionsTop | Top
+   instructions.isInLinearFlow = False		   
+ 
+-- Now for case-2:
+SEM VirtKind | BeginBlock
+   loc.prevBlock = @loc.blockId - 1
+   lhs.edges = if @lhs.isInLinearFlow then [(@loc.prevBlock,@loc.blockId)]  
+                                      else []									 
+                    
+-- Counting the blocks, assigning numbers:
+--
+ATTR RootJustBelowSwfFileToInstr VirtKind [ | unqBlockId : Int | ]
+SEM SwfFile | File  
+    tags.unqBlockId = 1
+
+SEM VirtKind | BeginBlock
+   loc.blockId    = @lhs.unqBlockId
+   lhs.unqBlockId = @lhs.unqBlockId+1
+
+-- Collecting the mapping of instruction-label -> block-id.
+-- Remember that the raw-edges collected above are of the form
+-- (sb,tlab) where sb is the block-id of the source, and tlab
+-- is the instruction label of the target. We will need to infer
+-- the block-id that corresponds to this target. This is calculated
+-- below.
+-- There are two kinds of targets:
+--    (1) the target is a begin-block virtual instruction
+--    (2) the target is a Label instruction; but then we ASSUME that for 
+--        such a target, its next instruction is always a begin-block.
+--  For both, the correct block-id must be inferred.
+
+ATTR InstructionsLike InstructionLike VirtKind
+     [ | | lab2blockMap USE {`mappend`} {mempty} : {[(Int,Int)]} ]
+     
+SEM VirtKind | BeginBlock
+    lhs.lab2blockMap = [(@lhs.iLabel,@loc.blockId)] 
+	  
+SEM Instruction | Label
+	lhs.lab2blockMap = [(@lhs.iLabel,@lhs.unqBlockId)] 
+
+						  

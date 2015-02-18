@@ -1,0 +1,4 @@
+[[
+(0,ClassDescr {clName = Ref 3, clSuper = Nothing, clInterfaces = [], clDynTraits = [TraitDescr {trName = Ref 4, trData = TraitMethod {trMethod = Ref 1}}], clStaTraits = []}),
+(1,ClassDescr {clName = Ref 5, clSuper = Nothing, clInterfaces = [], clDynTraits = [TraitDescr {trName = Ref 6, trData = TraitMethod {trMethod = Ref 4}}], clStaTraits = []}),
+(2,ClassDescr {clName = Ref 7, clSuper = Just (Ref 8), clInterfaces = [Ref 9,Ref 10], clDynTraits = [TraitDescr {trName = Ref 11, trData = TraitField {trType = Ref 2}},TraitDescr {trName = Ref 12, trData = TraitField {trType = Ref 13}},TraitDescr {trName = Ref 14, trData = TraitMethod {trMethod = Ref 8}},TraitDescr {trName = Ref 15, trData = TraitMethod {trMethod = Ref 9}},TraitDescr {trName = Ref 16, trData = TraitMethod {trMethod = Ref 10}}], clStaTraits = [TraitDescr {trName = Ref 17, trData = TraitField {trType = Ref 2}}]})]]

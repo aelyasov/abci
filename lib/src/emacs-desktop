@@ -1,0 +1,62 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Mon Jul 22 13:49:13 2013
+;; Desktop file format version 206
+;; Emacs version 24.2.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/Boogie/Boogie.ag" "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/ByteCode/BranchInfo.ag" "/home/alex/.emacs" ".emacs.desktop" "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/TestIt.hs" "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/ByteCode/Ast.ag"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/Boogie/Boogie.ag"
+  "Boogie.ag"
+  'ag-mode
+  nil
+  556
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/ByteCode/BranchInfo.ag"
+  "BranchInfo.ag"
+  'ag-mode
+  nil
+  1103
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/ByteCode/Ast.ag"
+  "Ast.ag"
+  'ag-mode
+  nil
+  1975
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/alex/PROJECTS/FITTEST/Software/UtrechtUniv/tools/abci/v1.1/lib/src/TestIt.hs"
+  "TestIt.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indentation-mode)
+  1512
+  '(1573 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+

@@ -1,0 +1,16 @@
+module Boogie where
+
+import ByteCode
+
+swfToBoogie :: SwfFile -> FilePath -> IO ()
+swfToBoogie swf file = do
+  let tags      = tags_SwfFile_File swf 
+      cls       = if null tags
+                  then error "There is no tags"
+                  else (instances_AbcFile_File 
+                        . file_Tag_Abc 
+                        . last 
+                       ) $ tags
+      cls_names = map name_InstanceInfo_Info cls 
+  print ("Names of classes" ++ (show $ map show cls_names))
+  return ()

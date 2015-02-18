@@ -1,0 +1,259 @@
+SWF   compressed: yes, version: 14, length: 1158, rate: 6144
+TAG FileAttributes   use blit: no, use gpu: no, hasAS3: yes, use network: yes
+TAG TagKind_Metadata   length: 459
+TAG TagKind_ScriptLimits   length: 4
+TAG TagKind_SetBackgroundColor   length: 3
+TAG TagKind_Other {code_TagKind_Other = 41}   length: 26
+TAG TagKind_FrameLabel   length: 6
+TAG Abc   lazy init: yes, name: frame1
+ABC   major version: 46, minor version: 16, classes: 2, methods: 5
+TABLE integers
+TABLE uintegers
+TABLE doubles
+TABLE strings
+  1 -> 
+  2 -> int
+  3 -> String
+  4 -> void
+  5 -> IAlpha
+  6 -> Test1.as$30:IAlpha
+  7 -> foo
+  8 -> Test1
+  9 -> flash.display
+  10 -> Sprite
+  11 -> xoo
+  12 -> Boolean
+  13 -> prv
+  14 -> s
+  15 -> sstr
+  16 -> Error
+  17 -> e
+  18 -> p
+  19 -> y
+  20 -> Object
+  21 -> flash.events
+  22 -> EventDispatcher
+  23 -> DisplayObject
+  24 -> InteractiveObject
+  25 -> DisplayObjectContainer
+TABLE namespaces
+  1 -> 
+  2 -> 
+  3 -> Test1.as$30:IAlpha
+  4 -> flash.display
+  5 -> Test1
+  6 -> 
+  7 -> 
+  8 -> flash.events
+TABLE namesets
+  1 -> SET  {ns-id: 2}
+TABLE multinames
+  1 -> int QName
+  2 -> String QName
+  3 -> void QName
+  4 -> IAlpha QName
+  5 -> Test1.as$30:IAlpha:foo QName
+  6 -> Test1 QName
+  7 -> flash.display:Sprite QName
+  8 -> IAlpha Multiname
+  9 -> xoo QName
+  10 -> Boolean QName
+  11 -> prv QName
+  12 -> foo QName
+  13 -> s QName
+  14 -> Error QName
+  15 -> e QName
+  16 -> p QName
+  17 -> y QName
+  18 -> Object QName
+  19 -> flash.events:EventDispatcher QName
+  20 -> flash.display:DisplayObject QName
+  21 -> flash.display:InteractiveObject QName
+  22 -> flash.display:DisplayObjectContainer QName
+METHODS_INFO
+  METHOD 0 {}
+  METHOD 1 {2}
+  METHOD 0 {}
+  METHOD 0 {}
+  METHOD 3 {}
+  METHOD 1 {2}
+  METHOD 0 {}
+INSTANCES_INFO
+  INSTANCE IAlpha
+    SUPER *
+    FLAG sealed
+    FLAG is interface
+    CON ():*
+    NS *
+    TRAIT Test1.as$30:IAlpha:foo (5)  
+      METHOD disp-id: 0, method: foo(String):int
+  INSTANCE Test1
+    SUPER flash.display:Sprite
+    FLAG sealed
+    FLAG has protected namespace
+    CON ():void
+    NS Test1
+    TRAIT xoo (9)  
+      SLOT slotid: 0, type: Boolean, vindex: 11, vkind:
+    TRAIT prv (11)  
+      SLOT slotid: 0, type: int, vindex: 0, vkind:
+    TRAIT foo (12)  
+      METHOD disp-id: 0, method: foo(String):int
+CLASSES_INFO
+  CLASS IAlpha
+    CON ():*
+  CLASS Test1
+    CON ():*
+    TRAIT s (13)  
+      SLOT slotid: 1, type: String, vindex: 15, vkind:
+SCRIPTS_INFO
+  SCRIPT ():*   (6)
+    TRAIT Test1 (6)  
+      CLASS Test1
+    TRAIT IAlpha (4)  
+      CLASS IAlpha
+METHOD_BODIES_INFO
+  METHOD ():*   (0) max stack: 0, locals: 0, init scopes: 3, max scopes: 3
+    103   :  < 1 > beginbody
+    102   :  < 2 > beginblock 1
+    104   :  < 2 > endblock
+    105   :  < 0 > endbody
+             returnvoid
+    1     :  < 3 > -----
+  METHOD ():*   (3) max stack: 2, locals: 0, init scopes: 8, max scopes: 9
+    119   :  < 4 > beginbody
+    118   :  < 5 > beginblock 2
+             getlocal_0
+             pushscope
+             findproperty s
+             pushstring sstr
+             setproperty s
+    140   :  < 5 > endblock
+    141   :  < 0 > endbody
+             returnvoid
+    9     :  < 6 > -----
+  METHOD ():void   (4) max stack: 2, locals: 0, init scopes: 9, max scopes: 10
+    123   :  < 7 > beginbody
+    122   :  < 8 > beginblock 3
+             getlocal_0
+             pushscope
+             getlocal_0
+             constructsuper args: 0
+             getlocal_0
+             pushbyte 255
+             initproperty prv
+    152   :  < 8 > endblock
+    153   :  < 0 > endbody
+             returnvoid
+    11    :  < 9 > -----
+  METHOD foo(String):int   (5) max stack: 3, locals: 3, init scopes: 10, max scopes: 15
+    271   :  < 10 > beginbody
+    270   :  < 11 > beginblock 4
+             getlocal_0
+             pushscope
+             newactivation
+             dup
+             setlocal_2
+             pushscope
+             getscopeobject index: 1
+             getlocal_1
+             setslot 1
+             getscopeobject index: 1
+             pushbyte 100
+             setslot 2
+    17    :  < 12 > beginblock 5
+             getlocal_0
+             getproperty xoo
+    328   :  < 12 > endblock
+             iffalse 54 (30)
+    24    :  < 13 > beginblock 6
+             getscopeobject index: 1
+             getslot 2
+             pushbyte 0
+    344   :  < 13 > endblock
+             ifngt 44 (10)
+    34    :  < 14 > beginblock 7
+             getscopeobject index: 1
+             pushbyte 1
+             setslot 2
+    360   :  < 14 > endblock
+             jump 50 (6)
+    44    :  < 15 > beginblock 8
+             getscopeobject index: 1
+             pushbyte 0
+             setslot 2
+    375   :  < 15 > endblock
+    50    :  < 16 > beginblock 9
+    376   :  < 16 > endblock
+             jump 60 (-318)
+    54    :  < 17 > beginblock 10
+             getscopeobject index: 1
+             pushbyte 3
+             setslot 2
+    60    :  < 18 > beginblock 11
+    392   :  < 18 > endblock
+             jump 80 (-314)
+    64    :  < 19 > beginblock 12
+             getlocal_0
+             pushscope
+             getlocal_2
+             pushscope
+             newcatch from: 17, to: 60, target: 64, type: Error, name: e
+             dup
+             setlocal_3
+             dup
+             pushscope
+             swap
+             setslot 1
+             popscope
+             kill 3
+    447   :  < 19 > endblock
+    80    :  < 20 > beginblock 13
+             getscopeobject index: 1
+             getslot 2
+    456   :  < 20 > endblock
+    457   :  < 0 > endbody
+             returnvalue
+    85    :  < 21 > -----
+    EXCEPTION Error   from: 17, to: 60, target: 64
+    TRAIT p (16)  
+      SLOT slotid: 1, type: String, vindex: 0, vkind:
+    TRAIT y (17)  
+      SLOT slotid: 2, type: int, vindex: 0, vkind:
+  METHOD ():*   (6) max stack: 2, locals: 0, init scopes: 1, max scopes: 8
+    185   :  < 22 > beginbody
+    184   :  < 23 > beginblock 14
+             getlocal_0
+             pushscope
+             getscopeobject index: 0
+             getlex Object
+             pushscope
+             getlex flash.events:EventDispatcher
+             pushscope
+             getlex flash.display:DisplayObject
+             pushscope
+             getlex flash.display:InteractiveObject
+             pushscope
+             getlex flash.display:DisplayObjectContainer
+             pushscope
+             getlex flash.display:Sprite
+             pushscope
+             getlex flash.display:Sprite
+             newclass Test1
+             popscope
+             popscope
+             popscope
+             popscope
+             popscope
+             popscope
+             initproperty Test1
+             getscopeobject index: 0
+             pushnull
+             newclass IAlpha
+             initproperty IAlpha
+    298   :  < 23 > endblock
+    299   :  < 0 > endbody
+             returnvoid
+    42    :  < 24 > -----
+TAG TagKind_SymbolClass   length: 10
+TAG TagKind_ShowFrame   length: 0

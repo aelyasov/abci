@@ -1,0 +1,3 @@
+:set -isrc:dist/build/:.
+:load Instrumentation.Demo1
+import TestIt

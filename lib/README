@@ -1,0 +1,91 @@
+Defined Attributes:
+
+-- ======================================================================================
+ByteCode.BranchInfo.ag
+-- ======================================================================================
+
+
+attr Instruction CaseOffsets
+  -- attribute 'branching' specifies all the non-exceptional ways to branch from this instruction   
+  syn branching USE {`mappend`} {mempty} :: BranchingInfo
+
+attr LabInstruction
+  syn label :: Int -- instruction's label
+
+-- the followup attribute keeps the label of the predicessor or Nothing.
+-- that is for the list [3,2,1] the corresponding list of followup values is 
+-- [Just 2, Just 1, Nothing].
+attr InstructionsTop Instructions
+  syn followup :: {Maybe Int}
+  inh followup :: {Maybe Int}
+
+attr Exceptions Exception
+  inh index :: Word32
+
+attr InstructionsLike LabInstruction Exceptions Exception
+  syn gathSources USE {`m'mappend`} {mempty} :: {Map BranchSource [Int]}
+
+attr InstructionsLike LabInstruction     
+  inh distSources :: {IntMap [BranchSource]}
+
+attr Instruction
+  inh isHandler :: {Maybe (ExceptionRef)} 
+  inh sources   :: {[BranchSource]}
+
+attr Instruction
+  syn isReturn USE {@NOT@NEEDED@} {False} :: Bool
+
+-- -------------------------------------------------------------------------------------
+ByteCode.Support.hs
+-- -------------------------------------------------------------------------------------
+
+data BranchSource
+  = SourceException Word32    -- exception index
+  | SourceInstruction Int     -- instruction label
+  | SourceStart               -- method entry
+
+data BranchingInfo =
+  BranchingInfo { branchNext  :: Bool     -- has branch to the subseq. instr 
+                , branchOther :: [Int]    -- where to branch
+                } 
+
+-- ======================================================================================
+ByteCode.Consolidate.hs
+-- ======================================================================================
+
+
+-- The attribute 'blockCond' specifies for each instruction whether
+-- or not the instruction is in a conditional block, and if so,
+-- also provides the block identifier.
+attr InstructionsLike InstructionLike VirtKind
+  inh blockAlive :: IntSet
+  chn blockCond  :: {Maybe Int}
+  syn blockDepends USE {`depAppend`} {mempty} :: BlockDeps
+
+attr VirtKind
+  inh vid :: Int
+
+attr InstructionsLike InstructionLike VirtKind
+  chn blockNeed :: Bool
+
+attr InstructionsLike InstructionLike VirtKind
+  inh localsMap :: {IntMap Word32}
+
+
+attr VirtKind     
+ syn repl :: {Maybe Instruction} 
+type BlockDeps = IntMap [Int]
+
+-- ======================================================================================
+ByteCode.Consolidate.hs
+-- ======================================================================================
+
+attr BodyInfos BodyInfo 
+  inh bodyId :: Int -- sequential numbering of all BodyInfo-s starting from 0
+
+-- ======================================================================================
+Util.ParamAnalysis.ag
+-- ======================================================================================
+
+
+-- =====================================================================================

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="mx.utils"><apiName>mx.utils</apiName><apiDetail/><apiClassifier id="mx.utils:StringUtil"><apiName>StringUtil</apiName><shortdesc>
+  The StringUtil utility class is an all-static class with methods for
+  working with String objects within Flex.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The StringUtil utility class is an all-static class with methods for
+  working with String objects within Flex.
+  You do not create instances of StringUtil;
+  instead you call methods such as 
+  the <codeph>StringUtil.substitute()</codeph> method.  
+  
+  </apiDesc></apiClassifierDetail><apiOperation id="mx.utils:StringUtil:isWhitespace"><apiName>isWhitespace</apiName><shortdesc>
+      Returns true if the specified string is
+      a single space, tab, carriage return, newline, or formfeed character.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc><codeph>true</codeph> if the specified string is
+      a single space, tab, carriage return, newline, or formfeed character.
+      
+      </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>character</apiItemName><apiType value="String"/><apiDesc>The String that is is being queried. 
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns <codeph>true</codeph> if the specified string is
+      a single space, tab, carriage return, newline, or formfeed character.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:StringUtil:repeat"><apiName>repeat</apiName><shortdesc>
+      Returns a string consisting of a specified string
+      concatenated with itself a specified number of times.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4.1"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>The repeated string.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>str</apiItemName><apiType value="String"/><apiDesc>The string to be repeated.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>n</apiItemName><apiType value="int"/><apiDesc>The repeat count.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns a string consisting of a specified string
+      concatenated with itself a specified number of times.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:StringUtil:restrict"><apiName>restrict</apiName><shortdesc>
+      Removes "unallowed" characters from a string.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4.1"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>The input string, minus any characters
+      that are not allowed by the restriction string.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>str</apiItemName><apiType value="String"/><apiDesc>The input string.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>restrict</apiItemName><apiType value="String"/><apiDesc>The restriction string.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Removes "unallowed" characters from a string.
+      A "restriction string" such as <codeph>"A-Z0-9"</codeph>
+      is used to specify which characters are allowed.
+      This method uses the same logic as the <codeph>restrict</codeph>
+      property of TextField.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:StringUtil:substitute"><apiName>substitute</apiName><shortdesc>
+      Substitutes "{n}" tokens within the specified string
+      with the respective arguments passed in.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>New string with all of the <codeph>{n}</codeph> tokens
+      replaced with the respective arguments specified.
+     
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>str</apiItemName><apiType value="String"/><apiDesc>The string to make substitutions in.
+      This string can contain special tokens of the form
+      <codeph>{n}</codeph>, where <codeph>n</codeph> is a zero based index,
+      that will be replaced with the additional parameters
+      found at that index if specified.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>rest</apiItemName><apiType value="restParam"/><apiDesc>Additional parameters that can be substituted
+      in the <codeph>str</codeph> parameter at each <codeph>{n}</codeph>
+      location, where <codeph>n</codeph> is an integer (zero based)
+      index value into the array of values specified.
+      If the first parameter is an array this array will be used as
+      a parameter list.
+      This allows reuse of this routine in other methods that want to
+      use the ... rest signature.
+      For example <pre>
+         public function myTracer(str:String, ... rest):void
+         { 
+             label.text += StringUtil.substitute(str, rest) + "\n";
+         } </pre>
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Substitutes "{n}" tokens within the specified string
+      with the respective arguments passed in.
+     
+      </apiDesc><example>
+     
+      var str:String = "here is some info '{0}' and {1}";
+      trace(StringUtil.substitute(str, 15.4, true));
+     
+      // this will output the following string:
+      // "here is some info '15.4' and true"
+      
+      </example></apiOperationDetail></apiOperation><apiOperation id="mx.utils:StringUtil:trimArrayElements"><apiName>trimArrayElements</apiName><shortdesc>
+      Removes all whitespace characters from the beginning and end
+      of each element in an Array, where the Array is stored as a String.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>Updated String where whitespace was removed from the 
+      beginning and end of each element. 
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc>The String whose whitespace should be trimmed. 
+     
+      </apiDesc></apiParam><apiParam><apiItemName>delimiter</apiItemName><apiType value="String"/><apiDesc>The String that delimits each Array element in the string.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Removes all whitespace characters from the beginning and end
+      of each element in an Array, where the Array is stored as a String. 
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:StringUtil:trim"><apiName>trim</apiName><shortdesc>
+      Removes all whitespace characters from the beginning and end
+      of the specified string.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>Updated String where whitespace was removed from the 
+      beginning and end. 
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>str</apiItemName><apiType value="String"/><apiDesc>The String whose whitespace should be trimmed. 
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Removes all whitespace characters from the beginning and end
+      of the specified string.
+     
+      </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="mx.utils:NameUtil"><apiName>NameUtil</apiName><shortdesc>
+  The NameUtil utility class defines static methods for
+  creating names for Flex objects.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The NameUtil utility class defines static methods for
+  creating names for Flex objects.
+  You do not create instances of NameUtil;
+  instead you call static methods of the class, such as 
+  the <codeph>NameUtil.createName()</codeph> method.
+  
+  </apiDesc></apiClassifierDetail><apiOperation id="mx.utils:NameUtil:createUniqueName"><apiName>createUniqueName</apiName><shortdesc>
+      Creates a unique name for any Object instance, such as "Button12", by
+      combining the unqualified class name with an incrementing counter.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>String containing the unique name.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>object</apiItemName><apiType value="Object"/><apiDesc>Object requiring a name.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Creates a unique name for any Object instance, such as "Button12", by
+      combining the unqualified class name with an incrementing counter.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:NameUtil:displayObjectToString"><apiName>displayObjectToString</apiName><shortdesc>
+      Returns a string, such as
+      "MyApplication0.addressForm.lastName.TextField17",
+      for a DisplayObject object that indicates its position in the
+      hierarchy of DisplayObject objects in an application.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>String containing the position of <codeph>displayObject</codeph> 
+      in the hierarchy of DisplayObject objects in an application.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>displayObject</apiItemName><apiType value="flash.display:DisplayObject"/><apiDesc>A DisplayObject object whose hierarchy in the application
+      is desired. 
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns a string, such as
+      "MyApplication0.addressForm.lastName.TextField17",
+      for a DisplayObject object that indicates its position in the
+      hierarchy of DisplayObject objects in an application.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.utils:NameUtil:getUnqualifiedClassName"><apiName>getUnqualifiedClassName</apiName><shortdesc>
+      Returns the name of the specified object's class,
+      such as "Button"
+     
+      This string does not include the package name.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>The name of the specified object's class.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>object</apiItemName><apiType value="Object"/><apiDesc>The object.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns the name of the specified object's class,
+      such as <codeph>"Button"</codeph>
+     
+      <p>This string does not include the package name.
+      If you need the package name as well, call the
+      <codeph>getQualifiedClassName()</codeph> method in the flash.utils package.
+      It will return a string such as <codeph>"mx.controls::Button"</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="mx.utils:LoaderUtil"><apiName>LoaderUtil</apiName><shortdesc>
+    The LoaderUtil class defines utility methods for use with Flex RSLs and
+    generic Loader instances.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+    The LoaderUtil class defines utility methods for use with Flex RSLs and
+    generic Loader instances.
+    
+    </apiDesc></apiClassifierDetail><apiOperation id="mx.utils:LoaderUtil:normalizeURL"><apiName>normalizeURL</apiName><shortdesc>
+      The root URL of a cross-domain RSL contains special text 
+      appended to the end of the URL.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>A normalized <codeph>LoaderInfo.url</codeph> property.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>loaderInfo</apiItemName><apiType value="flash.display:LoaderInfo"/><apiDesc>A LoaderInfo instance.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      The root URL of a cross-domain RSL contains special text 
+      appended to the end of the URL. 
+      This method normalizes the URL specified in the specified LoaderInfo instance 
+      to remove the appended text, if present. 
+      Classes accessing <codeph>LoaderInfo.url</codeph> should call this method 
+      to normalize the URL before using it.
+      This method also encodes the url by calling the encodeURI() method
+      on it. If you want the unencoded url, you must call unencodeURI() on
+      the results.
+     
+      </apiDesc></apiOperationDetail></apiOperation></apiClassifier></apiPackage>

@@ -1,0 +1,239 @@
+--
+-- Information about instructions
+-- 
+
+-- The effect of an instruction is stack(s) transformation. 
+-- Each of AVM2 instructions may change either operand or scope stack.
+-- This module specifies the input and output number of stack elements effected by each of the AVM2 instruction. 
+-- Attributes:
+-- - loc.op_inputs is a number of elements popped off the operand stack 
+-- - loc.sc_inputs is a number of elements popped off the scope stack
+-- - loc.op.op_outputs is a number of elements pushed on the operand stack
+-- - loc.sc_op_outputs is a number of elements pushed on the scope stack 
+-- 
+
+-- ===========================================
+-- Operand stack effect
+-- ===========================================
+
+-- Number of inputs
+SEM Instruction
+  -- Binary operations
+  | Add Add_i Add_d BitAnd BitOr BitXor
+    AsTypeLate InstanceOf
+    Concat Divide  Modulo Multiply Multiply_i
+    Equals GreaterEquals GreaterThan LessEquals LessThan
+    StrictEquals Substract Substract_i
+    Urshift Rshift Lshift HasNext In IsTypeLate
+    NextName NextValue
+      loc.op_inputs = 2
+
+  -- In-place structure updates
+  | BitNot AsType Not Negate Negate_i
+    Coerce Coerce_s Coerce_o Coerce_a Coerce_i Coerce_b Coerce_d Coerce_u
+    Convert_b Convert_i Convert_d Convert_o Convert_u Convert_s
+    CheckFilter Decrement Decrement_i
+    GetSlot TypeOf
+    EscXAttr EscXElem
+    Increment Increment_i
+    SignExtend1 SignExtend8 SignExtend16 IsType
+      loc.op_inputs = 1
+
+  -- Instructions without effect
+  | Breakpoint BreakLine Debug DebugFile DebugLine
+    DecLocal DecLocal_i Dxns PopScope ReturnVoid Nop Label Kill
+    IncLocal IncLocal_i
+      loc.op_inputs = 0
+
+  -- Instructions that pop only the topmost element
+  | DxnsLate Pop PushScope PushWith ReturnValue
+    SetLocal SetLocal0 SetLocal1 SetLocal2 SetLocal3
+    SetGlobalSlot ApplyType
+      loc.op_inputs = 1
+
+  -- Instructions that only push a value on the stack
+  | GetGlobalScope GetGlobalSlot GetLocal GetLocal0 GetLocal1 GetLocal2 GetLocal3
+    GetOuterScope GetScopeObject
+    PushByte PushDouble PushFalse PushInt PushNamespace PushNaN PushNull
+    PushShort PushString PushTrue PushUInt PushUndefined
+    HasNext2
+      loc.op_inputs = 0
+
+  -- Call instructions
+  | Call
+      loc.op_inputs = 2 + @argCount
+  | CallInterface CallProp CallPropLex CallSuper ConstructProp
+      loc.op_inputs = 1 + @argCount + @loc.nmExtra
+  | CallPropVoid CallSuperVoid
+      loc.op_inputs = 1 + @argCount + @loc.nmExtra
+  | CallMethod CallStatic Construct ConstructSuper
+      loc.op_inputs = 1 + @argCount
+
+  -- Unknowns
+  | CallSuperId        loc.op_inputs = 0
+  | DeletePropertyLate loc.op_inputs = 1
+  | Timestamp          loc.op_inputs = 0
+
+  -- Property instructions
+  | DeleteProperty
+      loc.op_inputs = 1 + @loc.nmExtra
+  | GetLex
+      loc.op_inputs = 0
+
+  | FindDef FindPropertyGlobalStrict FindPropertyGlobal FindProperty FindPropStrict
+      loc.op_inputs = @loc.nmExtra
+
+  | GetDescendants GetProperty GetSuper
+      loc.op_inputs = 1 + @loc.nmExtra
+  | InitProperty SetProperty SetSuper
+      loc.op_inputs = 2 + @loc.nmExtra
+  | SetPropertyLate
+      loc.op_inputs = 3
+
+  -- Special / Other
+  | SetSlot            loc.op_inputs = 2
+  | Dup                loc.op_inputs = 1
+  | Swap               loc.op_inputs = 2
+  | Virtual            loc.op_inputs = 0
+
+  -- New
+  | NewClass           loc.op_inputs = 1
+  | NewActivation NewCatch NewFunction
+      loc.op_inputs = 0
+
+  | NewArray 
+      loc.op_inputs = @argCount
+  | NewObject
+      loc.op_inputs = 2 * @argCount
+
+  -- Branch instructions
+  | Jump               loc.op_inputs = 0
+  | Throw IfFalse IfTrue LookupSwitch
+      loc.op_inputs = 1
+  | IfEq IfGe IfGt IfLe IfLt IfNGe IfNGt IfNLe IfNLt IfNe IfStrictEq IfStrictNe
+      loc.op_inputs = 2
+
+  -- Store instructions
+  | StoreFloat32 StoreFloat64 StoreIndirect8 StoreIndirect16 StoreIndirect32
+      loc.op_inputs = 2
+
+  -- Load instructions
+  | LoadFloat64 LoadFloat32 LoadIndirect8 LoadIndirect16 LoadIndirect32
+      loc.op_inputs = 1
+
+
+-- Number of op_outputs
+SEM Instruction
+  -- Binary operations
+  | Add Add_i Add_d BitAnd BitOr BitXor
+    AsTypeLate InstanceOf
+    Concat Divide  Modulo Multiply Multiply_i
+    Equals GreaterEquals GreaterThan LessEquals LessThan
+    StrictEquals Substract Substract_i
+    Urshift Rshift Lshift HasNext In IsTypeLate
+    NextName NextValue
+      loc.op_outputs = 1
+
+  -- In-place structure updates
+  | BitNot AsType Not Negate Negate_i
+    Coerce Coerce_s Coerce_o Coerce_a Coerce_i Coerce_b Coerce_d Coerce_u
+    Convert_b Convert_i Convert_d Convert_o Convert_u Convert_s
+    CheckFilter Decrement Decrement_i
+    GetSlot TypeOf
+    EscXAttr EscXElem
+    Increment Increment_i
+    SignExtend1 SignExtend8 SignExtend16 IsType
+      loc.op_outputs = 1
+
+  -- Instructions without effect
+  | Breakpoint BreakLine Debug DebugFile DebugLine
+    DecLocal DecLocal_i Dxns PopScope ReturnVoid Nop Label Kill
+    IncLocal IncLocal_i
+      loc.op_outputs = 0
+
+  -- Instructions that pop only the topmost element
+  | DxnsLate Pop PushScope PushWith ReturnValue
+    SetLocal SetLocal0 SetLocal1 SetLocal2 SetLocal3
+    SetGlobalSlot ApplyType
+      loc.op_outputs = 0
+
+  -- Instructions that only push a value on the stack
+  | GetGlobalScope GetGlobalSlot GetLocal GetLocal0 GetLocal1 GetLocal2 GetLocal3
+    GetOuterScope GetScopeObject
+    PushByte PushDouble PushFalse PushInt PushNamespace PushNaN PushNull
+    PushShort PushString PushTrue PushUInt PushUndefined
+    HasNext2
+      loc.op_outputs = 1
+
+  -- Call instructions
+  | Call CallInterface CallProp CallPropLex CallSuper ConstructProp
+      loc.op_outputs = 1
+  | CallPropVoid CallSuperVoid ConstructSuper
+      loc.op_outputs = 0
+  | CallMethod CallStatic Construct
+      loc.op_outputs = 1
+
+  -- Unknowns
+  | CallSuperId        loc.op_outputs = 0
+  | DeletePropertyLate loc.op_outputs = 0
+  | Timestamp          loc.op_outputs = 1
+
+  -- Property instructions
+  | DeleteProperty
+      loc.op_outputs = 1
+  | GetLex
+      loc.op_outputs = 1
+  | FindDef FindPropertyGlobalStrict FindPropertyGlobal FindProperty FindPropStrict
+      loc.op_outputs = 1
+  | GetDescendants GetProperty GetSuper
+      loc.op_outputs = 1
+  | InitProperty SetProperty SetSuper
+      loc.op_outputs = 0
+  | SetPropertyLate
+      loc.op_outputs = 0
+
+  -- Special / Other
+  | SetSlot            loc.op_outputs = 0
+  | Dup                loc.op_outputs = 2
+  | Swap               loc.op_outputs = 2
+  | Virtual            loc.op_outputs = 0
+
+  -- New
+  | NewClass           loc.op_outputs = 1
+  | NewActivation NewCatch NewFunction
+      loc.op_outputs = 1
+  | NewArray NewObject
+      loc.op_outputs = 1
+
+  -- Branch instructions
+  | Jump               loc.op_outputs = 0
+  | Throw IfFalse IfTrue LookupSwitch
+      loc.op_outputs = 0
+  | IfEq IfGe IfGt IfLe IfLt IfNGe IfNGt IfNLe IfNLt IfNe IfStrictEq IfStrictNe
+      loc.op_outputs = 0
+  -- Store instructions
+  | StoreFloat32 StoreFloat64 StoreIndirect8 StoreIndirect16 StoreIndirect32
+      loc.op_outputs = 0
+
+  -- Load instructions
+  | LoadFloat64 LoadFloat32 LoadIndirect8 LoadIndirect16 LoadIndirect32
+      loc.op_outputs = 1
+
+
+-- ===========================================
+-- Scope stack effect
+-- ===========================================
+
+
+SEM Instruction
+  | * - PopScope PushScope PushWith  
+      loc.sc_inputs  = 0
+      loc.sc_outputs = 0
+  | PopScope  
+      loc.sc_inputs  = 1
+      loc.sc_outputs = 0
+  | PushScope PushWith 
+      loc.sc_inputs  = 0
+      loc.sc_outputs = 1
+  
+  

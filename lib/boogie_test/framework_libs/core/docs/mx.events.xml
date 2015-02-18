@@ -1,0 +1,1532 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="mx.events"><apiName>mx.events</apiName><apiDetail/><apiClassifier id="mx.events:RSLEvent"><apiName>RSLEvent</apiName><shortdesc>
+  The RSLEvent class represents an event object used by the 
+  DownloadProgressBar class when an RSL is being downloaded by the Preloader class.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:ProgressEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The RSLEvent class represents an event object used by the 
+  DownloadProgressBar class when an RSL is being downloaded by the Preloader class. 
+   </apiDesc></apiClassifierDetail><related-links><link href="" invalidHref="mx.preloaders.DownloadProgressBar.xml"><linktext>mx.preloaders.DownloadProgressBar</linktext></link><link href="" invalidHref="mx.preloaders.Preloader.xml"><linktext>mx.preloaders.Preloader</linktext></link></related-links><adobeApiEvent id="mx.events:RSLEvent:RSL_ADD_PRELOADED_rslAddPreloaded"><apiName>rslAddPreloaded</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:RSLEvent:RSL_ADD_PRELOADED</apiEventType><adobeApiEventClassifier>mx.events:RSLEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:RSLEvent:RSL_COMPLETE_rslComplete"><apiName>rslComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:RSLEvent:RSL_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:RSLEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:RSLEvent:RSL_ERROR_rslError"><apiName>rslError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:RSLEvent:RSL_ERROR</apiEventType><adobeApiEventClassifier>mx.events:RSLEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:RSLEvent:RSL_PROGRESS_rslProgress"><apiName>rslProgress</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:RSLEvent:RSL_PROGRESS</apiEventType><adobeApiEventClassifier>mx.events:RSLEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="mx.events:RSLEvent:RSLEvent"><apiName>RSLEvent</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The type of the event. Possible values are:
+      <ul>
+         <li>"rslProgress" (<codeph>RSLEvent.RSL_PROGRESS</codeph>);</li>
+         <li>"rslComplete" (<codeph>RSLEvent.RSL_COMPLETE</codeph>);</li>
+         <li>"rslError" (<codeph>RSLEvent.RSL_ERROR</codeph>);</li>
+      </ul>
+           </apiDesc></apiParam><apiParam><apiItemName>bubbles</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc> Determines whether the Event object participates in the bubbling stage of the event flow.
+           </apiDesc></apiParam><apiParam><apiItemName>cancelable</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines whether the Event object can be cancelled.
+           </apiDesc></apiParam><apiParam><apiItemName>bytesLoaded</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The number of bytes loaded at the time the listener processes the event.
+           </apiDesc></apiParam><apiParam><apiItemName>bytesTotal</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The total number of bytes that will ultimately be loaded if the loading process succeeds.
+           </apiDesc></apiParam><apiParam><apiItemName>rslIndex</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The index number of the RSL relative to the total. This should be a value between 0 and <codeph>total - 1</codeph>.
+           </apiDesc></apiParam><apiParam><apiItemName>rslTotal</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The total number of RSLs being loaded.
+           </apiDesc></apiParam><apiParam><apiItemName>url</apiItemName><apiType value="flash.net:URLRequest"/><apiData>null</apiData><apiDesc>The location of the RSL.
+           </apiDesc></apiParam><apiParam><apiItemName>errorText</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>The error message of the error when type is RSLEvent.RSL_ERROR.
+           </apiDesc></apiParam><apiParam><apiItemName>isResourceModule</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>True if the event occurred when loading a ResourceModule.
+           </apiDesc></apiParam><apiParam><apiItemName>loaderInfo</apiItemName><apiType value="flash.display:LoaderInfo"/><apiData>null</apiData><apiDesc>The LoaderInfo object associated with this event.
+           </apiDesc></apiParam><apiTipTexts><apiTipText>Constructor for <codeph>RSLEvent</codeph> objects.
+      
+      </apiTipText></apiTipTexts></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="mx.events:RSLEvent:RSL_ADD_PRELOADED"><apiName>RSL_ADD_PRELOADED</apiName><shortdesc>
+      The RSLEvent.RSL_ADD_PRELOADED constant defines the value of the
+      type property of the event object for an 
+      rslAddPreloaded event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>rslAddPreloaded</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>RSLEvent.RSL_ADD_PRELOADED</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an 
+      <codeph>rslAddPreloaded</codeph> event. This event is dispatched from an 
+      IFlexModuleFactory after a child IFlexModuleFactory preloads an RSL
+      into its application domain. 
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>loaderInfo</codeph></entry><entry>The LoaderInfo instance 
+         associated with this RSL.</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:RSL_COMPLETE"><apiName>RSL_COMPLETE</apiName><shortdesc>
+      Dispatched when the RSL has finished downloading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>rslComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the RSL has finished downloading.   
+      The <codeph>RSLEvent.RSL_COMPLETE</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>rslComplete</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>The number of bytes loaded.</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>The total number of bytes to load.</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>Empty</entry></row><row><entry><codeph>isResourceModule</codeph></entry><entry>True if we loaded a resourceModule
+            instead of an RSL</entry></row><row><entry><codeph>rslIndex</codeph></entry><entry>The index number of the RSL 
+           currently being downloaded. </entry></row><row><entry><codeph>rslTotal</codeph></entry><entry>The total number of RSLs 
+           being downloaded. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row><row><entry><codeph>url</codeph></entry><entry>The URLRequest object that represents 
+           the location of the RSL being downloaded.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:RSL_ERROR"><apiName>RSL_ERROR</apiName><shortdesc>
+      Dispatched when there is an error downloading the RSL.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>rslError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when there is an error downloading the RSL.
+      The <codeph>RSLEvent.RSL_ERROR</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>rslError</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>Empty</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>Empty</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry>An error message.<entry/></row><row><entry><codeph>isResourceModule</codeph></entry><entry>True if we loaded a resourceModule
+            instead of an RSL</entry></row><row><entry><codeph>rslIndex</codeph></entry><entry>The index number of the RSL 
+           currently being downloaded. </entry></row><row><entry><codeph>rslTotal</codeph></entry><entry>The total number of RSLs 
+           being downloaded. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row><row><entry><codeph>url</codeph></entry><entry>The URLRequest object that represents 
+           the location of the RSL being downloaded.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:RSL_PROGRESS"><apiName>RSL_PROGRESS</apiName><shortdesc>
+      Dispatched when the RSL is downloading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>rslProgress</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the RSL is downloading.
+      The <codeph>RSLEvent.RSL_PROGRESS</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>rslProgress</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>The number of bytes loaded.</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>The total number of bytes to load.</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry>Empty<entry/></row><row><entry><codeph>isResourceModule</codeph></entry><entry>True if we loaded a resourceModule
+            instead of an RSL</entry></row><row><entry><codeph>rslIndex</codeph></entry><entry>The index number of the RSL 
+           currently being downloaded. </entry></row><row><entry><codeph>rslTotal</codeph></entry><entry>The total number of RSLs 
+           being downloaded. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row><row><entry><codeph>url</codeph></entry><entry>The URLRequest object that represents 
+           the location of the RSL being downloaded.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:errorText"><apiName>errorText</apiName><shortdesc>
+      The error message if the type is RSL_ERROR; otherwise, it is null;
+      
+      </shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+      The error message if the type is RSL_ERROR; otherwise, it is null;
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:isResourceModule"><apiName>isResourceModule</apiName><shortdesc>
+      True if the event is for loading a resourceModule instead of an RSL
+     </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Boolean"/></apiValueDef><apiDesc>
+      True if the event is for loading a resourceModule instead of an RSL
+     </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:loaderInfo"><apiName>loaderInfo</apiName><shortdesc>
+      The LoaderInfo object associated with this event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.display:LoaderInfo"/></apiValueDef><apiDesc>
+      The LoaderInfo object associated with this event. This is only set in the 
+      RSLEvent.RSL_COMPLETE event. Otherwise loaderInfo will be null.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:rslIndex"><apiName>rslIndex</apiName><shortdesc>
+      The index number of the RSL currently being downloaded.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="int"/></apiValueDef><apiDesc>
+      The index number of the RSL currently being downloaded.
+      This is a number between 0 and <codeph>rslTotal - 1</codeph>.
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:rslTotal"><apiName>rslTotal</apiName><shortdesc>
+      The total number of RSLs being downloaded by the preloader
+      
+      </shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="int"/></apiValueDef><apiDesc>
+      The total number of RSLs being downloaded by the preloader
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:RSLEvent:url"><apiName>url</apiName><shortdesc>
+      The URLRequest object that represents the location
+      of the RSL being downloaded.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.net:URLRequest"/></apiValueDef><apiDesc>
+      The URLRequest object that represents the location
+      of the RSL being downloaded.
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.events:FlexEvent"><apiName>FlexEvent</apiName><shortdesc>
+  The FlexEvent class represents the event object passed to
+  the event listener for many Flex events.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:Event</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The FlexEvent class represents the event object passed to
+  the event listener for many Flex events.
+  
+  </apiDesc></apiClassifierDetail><adobeApiEvent id="mx.events:FlexEvent:ADD_FOCUS_MANAGER_addFocusManager"><apiName>addFocusManager</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:ADD_FOCUS_MANAGER</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:ADD_add"><apiName>add</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:ADD</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:APPLICATION_COMPLETE_applicationComplete"><apiName>applicationComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:APPLICATION_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:BACK_KEY_PRESSED_backKeyPressed"><apiName>backKeyPressed</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:BACK_KEY_PRESSED</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:BUTTON_DOWN_buttonDown"><apiName>buttonDown</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:BUTTON_DOWN</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CHANGE_END_changeEnd"><apiName>changeEnd</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CHANGE_END</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CHANGE_START_changeStart"><apiName>changeStart</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CHANGE_START</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CHANGING_changing"><apiName>changing</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CHANGING</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CONTENT_CREATION_COMPLETE_contentCreationComplete"><apiName>contentCreationComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CONTENT_CREATION_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CREATION_COMPLETE_creationComplete"><apiName>creationComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CREATION_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:CURSOR_UPDATE_cursorUpdate"><apiName>cursorUpdate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:CURSOR_UPDATE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:DATA_CHANGE_dataChange"><apiName>dataChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:DATA_CHANGE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:ENTER_FRAME_flexEventEnterFrame"><apiName>flexEventEnterFrame</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:ENTER_FRAME</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:ENTER_STATE_enterState"><apiName>enterState</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:ENTER_STATE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:ENTER_enter"><apiName>enter</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:ENTER</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:EXIT_STATE_exitState"><apiName>exitState</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:EXIT_STATE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:FLEX_WINDOW_ACTIVATE_flexWindowActivate"><apiName>flexWindowActivate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:FLEX_WINDOW_ACTIVATE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:FLEX_WINDOW_DEACTIVATE_flexWindowDeactivate"><apiName>flexWindowDeactivate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:FLEX_WINDOW_DEACTIVATE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:HIDE_hide"><apiName>hide</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:HIDE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:IDLE_idle"><apiName>idle</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:IDLE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:INITIALIZE_initialize"><apiName>initialize</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:INITIALIZE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:INIT_COMPLETE_initComplete"><apiName>initComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:INIT_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="" invalidHref="mx.preloaders.DownloadProgressBar.xml"><linktext>mx.preloaders.DownloadProgressBar</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:INIT_PROGRESS_initProgress"><apiName>initProgress</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:INIT_PROGRESS</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="" invalidHref="mx.preloaders.DownloadProgressBar.xml"><linktext>mx.preloaders.DownloadProgressBar</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:INVALID_invalid"><apiName>invalid</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:INVALID</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:LOADING_loading"><apiName>loading</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:LOADING</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="" invalidHref="mx.modules.ModuleLoader.xml"><linktext>mx.modules.ModuleLoader</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:MENU_KEY_PRESSED_menuKeyPressed"><apiName>menuKeyPressed</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:MENU_KEY_PRESSED</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:MUTED_CHANGE_mutedChange"><apiName>mutedChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:MUTED_CHANGE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:NAVIGATOR_STATE_LOADING_applicationRestoring"><apiName>applicationRestoring</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:NAVIGATOR_STATE_LOADING</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:NAVIGATOR_STATE_SAVING_navigatorStateSaving"><apiName>navigatorStateSaving</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:NAVIGATOR_STATE_SAVING</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:PREINITIALIZE_preinitialize"><apiName>preinitialize</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:PREINITIALIZE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:READY_ready"><apiName>ready</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:READY</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:REMOVE_remove"><apiName>remove</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:REMOVE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:RENDER_flexEventRender"><apiName>flexEventRender</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:RENDER</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:REPEAT_END_repeatEnd"><apiName>repeatEnd</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:REPEAT_END</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:REPEAT_START_repeatStart"><apiName>repeatStart</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:REPEAT_START</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:REPEAT_repeat"><apiName>repeat</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:REPEAT</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:SELECTION_CHANGE_deferredContentCreate"><apiName>deferredContentCreate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:SELECTION_CHANGE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:SHOW_show"><apiName>show</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:SHOW</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:STATE_CHANGE_COMPLETE_stateChangeComplete"><apiName>stateChangeComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:STATE_CHANGE_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:STATE_CHANGE_INTERRUPTED_stateChangeInterrupted"><apiName>stateChangeInterrupted</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:STATE_CHANGE_INTERRUPTED</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:TRANSFORM_CHANGE_transformChange"><apiName>transformChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:TRANSFORM_CHANGE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:TRANSITION_END_transitionEnd"><apiName>transitionEnd</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:TRANSITION_END</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:TRANSITION_START_transitionStart"><apiName>transitionStart</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:TRANSITION_START</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:UPDATE_COMPLETE_updateComplete"><apiName>updateComplete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:UPDATE_COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:URL_CHANGED_urlChanged"><apiName>urlChanged</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:URL_CHANGED</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="" invalidHref="mx.modules.ModuleLoader.xml"><linktext>mx.modules.ModuleLoader</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:VALID_valid"><apiName>valid</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:VALID</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:FlexEvent:VALUE_COMMIT_valueCommit"><apiName>valueCommit</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:FlexEvent:VALUE_COMMIT</apiEventType><adobeApiEventClassifier>mx.events:FlexEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="mx.events:FlexEvent:FlexEvent"><apiName>FlexEvent</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The event type; indicates the action that caused the event.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bubbles</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Specifies whether the event can bubble up
+      the display list hierarchy.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>cancelable</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Specifies whether the behavior
+      associated with the event can be prevented.
+      
+      </apiDesc></apiParam></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="mx.events:FlexEvent:ADD_FOCUS_MANAGER"><apiName>ADD_FOCUS_MANAGER</apiName><shortdesc>
+      The FlexEvent.ADD_FOCUS_MANAGER constant defines the value of the
+      type property of the event object for an addFocusManager event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>addFocusManager</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.ADD_FOCUS_MANAGER</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>addFocusManager</codeph> event.
+      This event is dispatched from an IFocusManagerContainer when its focusManager
+      is assigned.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:ADD"><apiName>ADD</apiName><shortdesc>
+      The FlexEvent.ADD constant defines the value of the
+      type property of the event object for an add event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>add</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.ADD</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>add</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:APPLICATION_COMPLETE"><apiName>APPLICATION_COMPLETE</apiName><shortdesc>
+      The FlexEvent.APPLICATION_COMPLETE constant defines the value of the
+      type property of the event object for a applicationComplete event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>applicationComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.APPLICATION_COMPLETE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>applicationComplete</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:BACK_KEY_PRESSED"><apiName>BACK_KEY_PRESSED</apiName><shortdesc>
+      The FlexEvent.BACK_KEY_PRESSED constant defines the value of the
+      type property of the event object for a backKeyPressed event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>backKeyPressed</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.BACK_KEY_PRESSED</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>backKeyPressed</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>true</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:BUTTON_DOWN"><apiName>BUTTON_DOWN</apiName><shortdesc>
+      The FlexEvent.BUTTON_DOWN constant defines the value of the
+      type property of the event object for a buttonDown event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buttonDown</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.BUTTON_DOWN</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>buttonDown</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CHANGE_END"><apiName>CHANGE_END</apiName><shortdesc>
+      The FlexEvent.CHANGE_END constant defines the value of the
+      type property of the event object for a changeEnd event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>changeEnd</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CHANGE_END</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>changeEnd</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CHANGE_START"><apiName>CHANGE_START</apiName><shortdesc>
+      The FlexEvent.CHANGE_START constant defines the value of the
+      type property of the event object for a changeStart event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>changeStart</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CHANGE_START</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>changeStart</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CHANGING"><apiName>CHANGING</apiName><shortdesc>
+      The FlexEvent.CHANGING constant defines the value of the
+      type property of the event object for a changing event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>changing</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CHANGING</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>changing</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CONTENT_CREATION_COMPLETE"><apiName>CONTENT_CREATION_COMPLETE</apiName><shortdesc>
+      The FlexEvent.CONTENT_CREATION_COMPLETE constant defines the value of the
+      type property of the event object for a contentCreationComplete event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>contentCreationComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CONTENT_CREATION_COMPLETE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>contentCreationComplete</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CREATION_COMPLETE"><apiName>CREATION_COMPLETE</apiName><shortdesc>
+      The FlexEvent.CREATION_COMPLETE constant defines the value of the
+      type property of the event object for a creationComplete event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>creationComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CREATION_COMPLETE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>creationComplete</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:CURSOR_UPDATE"><apiName>CURSOR_UPDATE</apiName><shortdesc>
+      The FlexEvent.CURSOR_UPDATE constant defines the value of the
+      type property of the event object for a cursorUpdate event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>cursorUpdate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.CURSOR_UPDATE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>cursorUpdate</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:DATA_CHANGE"><apiName>DATA_CHANGE</apiName><shortdesc>
+      The FlexEvent.DATA_CHANGE constant defines the value of the
+      type property of the event object for a dataChange event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>dataChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.DATA_CHANGE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>dataChange</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:ENTER_FRAME"><apiName>ENTER_FRAME</apiName><shortdesc>
+      The FlexEvent.ENTER_FRAME constant defines the value of the
+      type property of the event object for an Event.ENTER_FRAMER event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>flexEventEnterFrame</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.ENTER_FRAME</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>Event.ENTER_FRAMER</codeph> event.
+     
+      Adding a listener to ENTER_FRAME on the <codeph>SystemManager</codeph> will add a listener for
+      the Event.ENTER_FRAME event on the <codeph>stage</codeph>, if access if allowed, 
+      or the <codeph>SystemManager</codeph> if access the the <codeph>stage</codeph> is not allowed. 
+      The listener should expect to receive Event.ENTER_FRAME events.
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:ENTER_STATE"><apiName>ENTER_STATE</apiName><shortdesc>
+      The FlexEvent.ENTER_STATE constant defines the value of the
+      type property of the event object for a enterState event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>enterState</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.ENTER_STATE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>enterState</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:ENTER"><apiName>ENTER</apiName><shortdesc>
+      The FlexEvent.ENTER constant defines the value of the
+      type property of the event object for a enter event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>enter</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.ENTER</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>enter</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:EXIT_STATE"><apiName>EXIT_STATE</apiName><shortdesc>
+      The FlexEvent.EXIT_STATE constant defines the value of the
+      type property of the event object for a exitState event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>exitState</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.EXIT_STATE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>exitState</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:FLEX_WINDOW_ACTIVATE"><apiName>FLEX_WINDOW_ACTIVATE</apiName><shortdesc>
+      The FlexEvent.FLEX_WINDOW_ACTIVATE constant defines the value of the
+      type property of the event object for a flexWindowActivate
+      event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>flexWindowActivate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.FLEX_WINDOW_ACTIVATE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>flexWindowActivate</codeph>
+      event.
+     
+      Similar to the flash.events.AIREvent.WINDOW_ACTIVATE except it is dispatched
+      in both Flash and AIR when a Flex window or popup is activated.  This event is
+      dispatched from the focusManager managing
+      focus in that container.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:FLEX_WINDOW_DEACTIVATE"><apiName>FLEX_WINDOW_DEACTIVATE</apiName><shortdesc>
+      The FlexEvent.FLEX_WINDOW_DEACTIVATE constant defines the value of the
+      type property of the event object for a flexWindowDeactivate
+      event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>flexWindowDeactivate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.FLEX_WINDOW_DEACTIVATE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>flexWindowDeactivate</codeph>
+      event.
+     
+      Similar to the flash.events.AIREvent.FLEX_WINDOW_DEACTIVATE except it is dispatched
+      in both Flash and AIR when a Flex Window or popup is deactivated.  This event is
+      dispatched from the focusManager managing
+      focus in that container.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:HIDE"><apiName>HIDE</apiName><shortdesc>
+      The FlexEvent.HIDE constant defines the value of the
+      type property of the event object for a hide event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>hide</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.HIDE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>hide</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:IDLE"><apiName>IDLE</apiName><shortdesc>
+      The FlexEvent.IDLE constant defines the value of the
+      type property of the event object for a idle event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>idle</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.IDLE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>idle</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:INITIALIZE"><apiName>INITIALIZE</apiName><shortdesc>
+      The FlexEvent.INITIALIZE constant defines the value of the
+      type property of the event object for a initialize event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>initialize</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.INITIALIZE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>initialize</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:INIT_COMPLETE"><apiName>INIT_COMPLETE</apiName><shortdesc>
+      Dispatched when a Flex application finishes initialization.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>initComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when a Flex application finishes initialization.
+      You use this event when creating a custom download progress bar.
+     
+      <p>This event is always dispatched once by the Preloader class,
+      and is the last event that the Preloader dispatches.
+      When this event is dispatched, the event listener should
+      dispatch an Event.COMPLETE event.</p>
+     
+      <p>A download progress bar must dispatch a <codeph>complete</codeph> 
+      event after it has received an <codeph>init_complete</codeph> event. 
+      The <codeph>complete</codeph> event informs the Preloader that the 
+      download progress bar has completed all operations and can be dismissed.</p>
+      
+      <p>A download progress bar can perform additional tasks, 
+      such as playing an animation, after receiving 
+      an <codeph>init_complete</codeph> event, and before dispatching 
+      the <codeph>complete</codeph> event. Dispatching the <codeph>complete</codeph> 
+      event should be the last action of the download progress bar.</p>
+     
+      <p>The FlexEvent.INIT_COMPLETE constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>initComplete</codeph> event.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail><related-links><link href="" invalidHref="mx.preloaders.DownloadProgressBar.xml"><linktext>mx.preloaders.DownloadProgressBar</linktext></link></related-links></apiValue><apiValue id="mx.events:FlexEvent:INIT_PROGRESS"><apiName>INIT_PROGRESS</apiName><shortdesc>
+      Dispatched when the Flex application completes an initialization phase,
+      as defined by calls to the measure(), commitProperties(),
+      or updateDisplayList() methods.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>initProgress</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the Flex application completes an initialization phase,
+      as defined by calls to the <codeph>measure()</codeph>, <codeph>commitProperties()</codeph>,
+      or <codeph>updateDisplayList()</codeph> methods.
+      This event describes the progress of the application in the initialization phase.
+      You use this event when creating a custom download progress bar.
+     
+      <p>The FlexEvent.INIT_PROGRESS constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>initProgress</codeph> event.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail><related-links><link href="" invalidHref="mx.preloaders.DownloadProgressBar.xml"><linktext>mx.preloaders.DownloadProgressBar</linktext></link></related-links></apiValue><apiValue id="mx.events:FlexEvent:INVALID"><apiName>INVALID</apiName><shortdesc>
+      The FlexEvent.INVALID constant defines the value of the
+      type property of the event object for a invalid event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>invalid</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.INVALID</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>invalid</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:LOADING"><apiName>LOADING</apiName><shortdesc>
+      The FlexEvent.LOADING constant defines the value of the
+      type property of the event object for a loading event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>loading</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.LOADING</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>loading</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail><related-links><link href="" invalidHref="mx.modules.ModuleLoader.xml"><linktext>mx.modules.ModuleLoader</linktext></link></related-links></apiValue><apiValue id="mx.events:FlexEvent:MENU_KEY_PRESSED"><apiName>MENU_KEY_PRESSED</apiName><shortdesc>
+      The FlexEvent.MENU_KEY_PRESSED constant defines the value of the
+      type property of the event object for a menuKeyPressed event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10.1"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>menuKeyPressed</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.MENU_KEY_PRESSED</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>menuKeyPressed</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>true</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:MUTED_CHANGE"><apiName>MUTED_CHANGE</apiName><shortdesc>
+      The FlexEvent.MUTED_CHANGE constant defines the value of the 
+      type property of the event object for a mutedChange event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>mutedChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.MUTED_CHANGE</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>mutedChange</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:NAVIGATOR_STATE_LOADING"><apiName>NAVIGATOR_STATE_LOADING</apiName><shortdesc>
+      The FlexEvent.NAVIGATOR_STATE_LOADING constant defines the value of the
+      type property of the event object for a navigatorStateLoading event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10.1"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>navigatorStateLoading</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.NAVIGATOR_STATE_LOADING</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>navigatorStateLoading</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>true</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:NAVIGATOR_STATE_SAVING"><apiName>NAVIGATOR_STATE_SAVING</apiName><shortdesc>
+      The FlexEvent.NAVIGATOR_STATE_SAVING constant defines the value of the
+      type property of the event object for a navigatorStateSaving event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10.1"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>navigatorStateSaving</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.NAVIGATOR_STATE_SAVING</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>navigatorStateSaving</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>true</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:PREINITIALIZE"><apiName>PREINITIALIZE</apiName><shortdesc>
+      The FlexEvent.PREINITIALIZE constant defines the value of the
+      type property of the event object for a preinitialize event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>preinitialize</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.PREINITIALIZE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>preinitialize</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:READY"><apiName>READY</apiName><shortdesc>
+      The FlexEvent.READY constant defines the value of the
+      type property of the event object for a ready 
+      event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>ready</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.READY</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>ready</codeph> 
+      event.  This event is dispatched by the BitmapImage and spark Image
+      classes to denote that the assigned image source has fully loaded.
+     
+      <p>The properties of the event object have the following values:</p>
+     
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>returnValue</codeph></entry><entry>null</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myImage.addEventListener()</codeph> to register an event listener, 
+           myImage is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row><row><entry><codeph>Type</codeph></entry><entry>FlexEvent.READY</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:REMOVE"><apiName>REMOVE</apiName><shortdesc>
+      The FlexEvent.REMOVE constant defines the value of the
+      type property of the event object for an remove event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>remove</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.REMOVE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>remove</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:RENDER"><apiName>RENDER</apiName><shortdesc>
+      The FlexEvent.RENDER constant defines the value of the
+      type property of the event object for an Event.RENDER event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>flexEventRender</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.RENDER</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>Event.RENDER</codeph> event.
+     
+      Adding a listener on the <codeph>SystemManager</codeph> will add a listener for FlexEvent.RENDER 
+      events on the <codeph>stage</codeph> or the <codeph>SystemManager</codeph> if the application does not have
+      access to the <codeph>stage</codeph>. The listener will also generate an Event.RENDER event. The 
+      listener function should expect to receive Event.RENDER events.
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:REPEAT_END"><apiName>REPEAT_END</apiName><shortdesc>
+      The FlexEvent.REPEAT_END constant defines the value of the
+      type property of the event object for a repeatEnd event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>repeatEnd</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.REPEAT_END</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>repeatEnd</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:REPEAT_START"><apiName>REPEAT_START</apiName><shortdesc>
+      The FlexEvent.REPEAT_START constant defines the value of the
+      type property of the event object for a repeatStart event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>repeatStart</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.REPEAT_START</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>repeatStart</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:REPEAT"><apiName>REPEAT</apiName><shortdesc>
+      The FlexEvent.REPEAT constant defines the value of the
+      type property of the event object for a repeat event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>repeat</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.REPEAT</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>repeat</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:SELECTION_CHANGE"><apiName>SELECTION_CHANGE</apiName><shortdesc>
+      The FlexEvent.SELECTION_CHANGE constant defines the value of the
+      type property of the event object for a selectionChange event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>selectionChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.SELECTION_CHANGE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>selectionChange</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:SHOW"><apiName>SHOW</apiName><shortdesc>
+      The FlexEvent.SHOW constant defines the value of the
+      type property of the event object for a show event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>show</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.SHOW</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>show</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:STATE_CHANGE_COMPLETE"><apiName>STATE_CHANGE_COMPLETE</apiName><shortdesc>
+      The FlexEvent.STATE_CHANGE_COMPLETE constant defines the value of the
+      type property of the event object for a stateChangeComplete event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>stateChangeComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.STATE_CHANGE_COMPLETE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>stateChangeComplete</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:STATE_CHANGE_INTERRUPTED"><apiName>STATE_CHANGE_INTERRUPTED</apiName><shortdesc>
+      The FlexEvent.STATE_CHANGE_INTERRUPTED constant defines the value of the
+      type property of the event object for a stateChangeInterrupted event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>stateChangeInterrupted</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.STATE_CHANGE_INTERRUPTED</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>stateChangeInterrupted</codeph> event.
+     
+     <p>This event will only be dispatched when there are one or more relevant listeners 
+     attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:TRANSFORM_CHANGE"><apiName>TRANSFORM_CHANGE</apiName><shortdesc>
+      The FlexEvent.TRANSFORM_CHANGE constant defines the value of the
+      type property of the event object for a transformChange event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>transformChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.TRANSFORM_CHANGE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>transformChange</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:TRANSITION_END"><apiName>TRANSITION_END</apiName><shortdesc>
+      The FlexEvent.TRANSITION_END constant defines the value of the
+      type property of the event object for a transitionEnd event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>transitionEnd</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.TRANSITION_END</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>transitionEnd</codeph> event.
+     
+      <p>This event will only be dispatched when there are one or more relevant listeners 
+      attached to the dispatching object.</p>  
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:TRANSITION_START"><apiName>TRANSITION_START</apiName><shortdesc>
+      The FlexEvent.TRANSITION_START constant defines the value of the
+      type property of the event object for a transitionStart event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="2.5"/><apiTool description="" name="Flex" version="4.5"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>transitionStart</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.TRANSITION_START</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>transitionStart</codeph> event.
+     
+      <p>This event will only be dispatched when there are one or more relevant listeners 
+      attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:UPDATE_COMPLETE"><apiName>UPDATE_COMPLETE</apiName><shortdesc>
+      The FlexEvent.UPDATE_COMPLETE constant defines the value of the
+      type property of the event object for a updateComplete event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>updateComplete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.UPDATE_COMPLETE</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>updateComplete</codeph> event.
+     
+      <p>This event will only be dispatched when there are one or more relevant listeners 
+      attached to the dispatching object.</p>
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:URL_CHANGED"><apiName>URL_CHANGED</apiName><shortdesc>
+      The FlexEvent.URL_CHANGED constant defines the value of the
+      type property of the event object for a urlChanged event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>urlChanged</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.URL_CHANGED</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>urlChanged</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail><related-links><link href="" invalidHref="mx.modules.ModuleLoader.xml"><linktext>mx.modules.ModuleLoader</linktext></link></related-links></apiValue><apiValue id="mx.events:FlexEvent:VALID"><apiName>VALID</apiName><shortdesc>
+      The FlexEvent.VALID constant defines the value of the
+      type property of the event object for a valid event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>valid</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.VALID</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>valid</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:FlexEvent:VALUE_COMMIT"><apiName>VALUE_COMMIT</apiName><shortdesc>
+      The FlexEvent.VALUE_COMMIT constant defines the value of the
+      type property of the event object for a valueCommit
+      event.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>valueCommit</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      The <codeph>FlexEvent.VALUE_COMMIT</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>valueCommit</codeph>
+      event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.events:ResourceEvent"><apiName>ResourceEvent</apiName><shortdesc>
+  The ResourceEvent class represents an Event object that is dispatched
+  when the ResourceManager loads the resource bundles in a resource module
+  by calling the loadResourceModule() method.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:ProgressEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The ResourceEvent class represents an Event object that is dispatched
+  when the ResourceManager loads the resource bundles in a resource module
+  by calling the <codeph>loadResourceModule()</codeph> method.
+ 
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#ResourceManager"><linktext>mx.resources.ResourceManager</linktext></link></related-links><adobeApiEvent id="mx.events:ResourceEvent:COMPLETE_complete"><apiName>complete</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ResourceEvent:COMPLETE</apiEventType><adobeApiEventClassifier>mx.events:ResourceEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ResourceEvent:ERROR_error"><apiName>error</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ResourceEvent:ERROR</apiEventType><adobeApiEventClassifier>mx.events:ResourceEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ResourceEvent:PROGRESS_progress"><apiName>progress</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ResourceEvent:PROGRESS</apiEventType><adobeApiEventClassifier>mx.events:ResourceEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="mx.events:ResourceEvent:ResourceEvent"><apiName>ResourceEvent</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The value of the <codeph>type</codeph> property of the event object. Possible values are:
+      <ul>
+         <li><codeph>"progress"</codeph> (<codeph>ResourceEvent.PROGRESS</codeph>)</li>
+         <li><codeph>"complete"</codeph> (<codeph>ResourceEvent.COMPLETE</codeph>)</li>
+         <li><codeph>"error"</codeph> (<codeph>ResourceEvent.ERROR</codeph>)</li>
+      </ul>
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bubbles</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines whether the Event object
+      participates in the bubbling stage of the event flow.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>cancelable</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines whether the Event object can be cancelled.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bytesLoaded</apiItemName><apiType value="uint"/><apiData>0</apiData><apiDesc>The number of bytes loaded
+      at the time the listener processes the event.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bytesTotal</apiItemName><apiType value="uint"/><apiData>0</apiData><apiDesc>The total number of bytes
+      that will ultimately be loaded if the loading process succeeds.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>errorText</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>The error message of the error
+      when <codeph>type</codeph> is <codeph>ResourceEvent.ERROR</codeph>.
+      
+      </apiDesc></apiParam></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="mx.events:ResourceEvent:COMPLETE"><apiName>COMPLETE</apiName><shortdesc>
+      Dispatched when the resource module SWF file has finished loading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>complete</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the resource module SWF file has finished loading.     
+      The ResourceEvent.COMPLETE constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>complete</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry><codeph>false</codeph></entry></row><row><entry><codeph>cancelable</codeph></entry><entry><codeph>false</codeph></entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           <codeph>myButton</codeph> is the value of <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>Empty</entry></row><row><entry><codeph>target</codeph></entry><entry>The object that dispatched the event; 
+           it is not always the object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           object that listens for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ResourceEvent:ERROR"><apiName>ERROR</apiName><shortdesc>
+      Dispatched when there is an error loading the resource module SWF file.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>error</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when there is an error loading the resource module SWF file.
+      The ResourceEvent.ERROR constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>error</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry><codeph>false</codeph></entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>Empty</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>Empty</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The object that defines the 
+           event listener that handles the event. For example, if you use the 
+           <codeph>myButton.addEventListener()</codeph> method to register an event listener, 
+           <codeph>myButton</codeph> is the value of <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry>An error message.<entry/></row><row><entry><codeph>target</codeph></entry><entry>The object that dispatched the event; 
+           it is not always the object that is listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           object that listens for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ResourceEvent:PROGRESS"><apiName>PROGRESS</apiName><shortdesc>
+      Dispatched when the resource module SWF file is loading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>progress</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the resource module SWF file is loading.
+      The ResourceEvent.PROGRESS constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>progress</codeph> event.
+     
+      <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry><codeph>false</codeph></entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>The number of bytes loaded.</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>The total number of bytes to load.</entry></row><row><entry><codeph>cancelable</codeph></entry><entry><codeph>false</codeph></entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The object that defines the 
+           event listener that handles the event. For example, if you use the 
+           <codeph>myButton.addEventListener()</codeph> method to register an event listener, 
+           <codeph>myButton</codeph> is the value of <codeph>currentTarget</codeph>.</entry></row><row><entry><codeph>errorText</codeph></entry>Empty<entry/></row><row><entry><codeph>target</codeph></entry><entry>The object that dispatched the event; 
+           it is not always the object that listens for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           object that is listening for the event.</entry></row></tbody></tgroup></adobetable>
+     
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ResourceEvent:errorText"><apiName>errorText</apiName><shortdesc>
+      The error message if the type is ERROR;
+      otherwise, it is null.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+      The error message if the <codeph>type</codeph> is <codeph>ERROR</codeph>;
+      otherwise, it is <codeph>null</codeph>.
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.events:ModuleEvent"><apiName>ModuleEvent</apiName><shortdesc>
+  The ModuleEvent class represents the event object passed to the event listener
+  for events related to dynamically-loaded modules.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:ProgressEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The ModuleEvent class represents the event object passed to the event listener
+  for events related to dynamically-loaded modules. 
+  
+  </apiDesc></apiClassifierDetail><adobeApiEvent id="mx.events:ModuleEvent:ERROR_error"><apiName>error</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ModuleEvent:ERROR</apiEventType><adobeApiEventClassifier>mx.events:ModuleEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ModuleEvent:PROGRESS_progress"><apiName>progress</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ModuleEvent:PROGRESS</apiEventType><adobeApiEventClassifier>mx.events:ModuleEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ModuleEvent:READY_ready"><apiName>ready</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ModuleEvent:READY</apiEventType><adobeApiEventClassifier>mx.events:ModuleEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ModuleEvent:SETUP_setup"><apiName>setup</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ModuleEvent:SETUP</apiEventType><adobeApiEventClassifier>mx.events:ModuleEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="mx.events:ModuleEvent:UNLOAD_unload"><apiName>unload</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>mx.events:ModuleEvent:UNLOAD</apiEventType><adobeApiEventClassifier>mx.events:ModuleEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="mx.events:ModuleEvent:ModuleEvent"><apiName>ModuleEvent</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The type of event. Possible values are:
+      <ul>
+         <li>"progress" (<codeph>ModuleEvent.PROGRESS</codeph>);</li>
+         <li>"ready" (<codeph>ModuleEvent.READY</codeph>);</li>
+         <li>"setup" (<codeph>ModuleEvent.SETUP</codeph>);</li>
+         <li>"error" (<codeph>ModuleEvent.ERROR</codeph>);</li>
+         <li>"unload" (<codeph>ModuleEvent.UNLOAD</codeph>);</li>
+      </ul>
+           </apiDesc></apiParam><apiParam><apiItemName>bubbles</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines whether the Event object
+      participates in the bubbling stage of the event flow.
+           </apiDesc></apiParam><apiParam><apiItemName>cancelable</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines whether the Event object can be cancelled
+      during event propagation.
+           </apiDesc></apiParam><apiParam><apiItemName>bytesLoaded</apiItemName><apiType value="uint"/><apiData>0</apiData><apiDesc>The number of bytes loaded
+      at the time the listener processes the event.
+           </apiDesc></apiParam><apiParam><apiItemName>bytesTotal</apiItemName><apiType value="uint"/><apiData>0</apiData><apiDesc>The total number of bytes
+      that will be loaded if the loading process succeeds.
+           </apiDesc></apiParam><apiParam><apiItemName>errorText</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>The error message when the event type 
+      is <codeph>ModuleEvent.ERROR</codeph>.
+           </apiDesc></apiParam><apiParam><apiItemName>module</apiItemName><apiOperationClassifier>mx.modules:IModuleInfo</apiOperationClassifier><apiData>null</apiData><apiDesc>An instance of an interface for a particular module. .
+           </apiDesc></apiParam><apiTipTexts><apiTipText>Constructor for <codeph>ModuleEvent</codeph> objects.
+      
+      </apiTipText></apiTipTexts></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="mx.events:ModuleEvent:ERROR"><apiName>ERROR</apiName><shortdesc>
+      Dispatched when there is an error downloading the module.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>error</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when there is an error downloading the module.
+      The <codeph>ModuleEvent.ERROR</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>error</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>Empty</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>Empty</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>The error message.</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:PROGRESS"><apiName>PROGRESS</apiName><shortdesc>
+      Dispatched when the module is in the process of downloading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>progress</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the module is in the process of downloading. This module is
+      dispatched at regular intervals during the download process.
+      The <codeph>ModuleEvent.PROGRESS</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>progress</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>The number of bytes loaded.</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>The total number of bytes to load.</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>Empty</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:READY"><apiName>READY</apiName><shortdesc>
+      Dispatched when the module has finished downloading.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>ready</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the module has finished downloading.     
+      The <codeph>ModuleEvent.READY</codeph> constant defines the value of the 
+      <codeph>type</codeph> property of the event object for a <codeph>complete</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>The number of bytes loaded.</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>The total number of bytes to load.</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the 
+           event listener that handles the event. For example, if you use 
+           <codeph>myButton.addEventListener()</codeph> to register an event listener, 
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>Empty</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event; 
+           it is not always the Object listening for the event. 
+           Use the <codeph>currentTarget</codeph> property to always access the 
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:SETUP"><apiName>SETUP</apiName><shortdesc>
+      Dispatched when enough of a module has been downloaded that you can get information
+      about the module.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>setup</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when enough of a module has been downloaded that you can get information
+      about the module. You do this by calling the <codeph>IFlexModuleFactory.info()</codeph>
+      method on the module.
+      The <codeph>ModuleEvent.SETUP</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for a <codeph>setup</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>Empty</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>Empty</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>An error message.</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:UNLOAD"><apiName>UNLOAD</apiName><shortdesc>
+      Dispatched when the module is unloaded.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unload</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched when the module is unloaded.
+           The <codeph>ModuleEvent.UNLOAD</codeph> constant defines the value of the
+      <codeph>type</codeph> property of the event object for an <codeph>unload</codeph> event.
+           <p>The properties of the event object have the following values:</p>
+      <adobetable class="innertable">
+         
+         
+         
+         
+         
+         
+         
+         
+      <tgroup cols="2"><thead><row><entry>Property</entry><entry>Value</entry></row></thead><tbody><row><entry><codeph>bubbles</codeph></entry><entry>false</entry></row><row><entry><codeph>bytesLoaded</codeph></entry><entry>Empty</entry></row><row><entry><codeph>bytesTotal</codeph></entry><entry>Empty</entry></row><row><entry><codeph>cancelable</codeph></entry><entry>false</entry></row><row><entry><codeph>currentTarget</codeph></entry><entry>The Object that defines the
+           event listener that handles the event. For example, if you use
+           <codeph>myButton.addEventListener()</codeph> to register an event listener,
+           myButton is the value of the <codeph>currentTarget</codeph>. </entry></row><row><entry><codeph>errorText</codeph></entry><entry>An error message.</entry></row><row><entry><codeph>target</codeph></entry><entry>The Object that dispatched the event;
+           it is not always the Object listening for the event.
+           Use the <codeph>currentTarget</codeph> property to always access the
+           Object listening for the event.</entry></row></tbody></tgroup></adobetable>
+           </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:errorText"><apiName>errorText</apiName><shortdesc>
+      The error message if the type is ModuleEvent.ERROR;
+      otherwise, it is null.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+      The error message if the type is <codeph>ModuleEvent.ERROR</codeph>;
+      otherwise, it is <codeph>null</codeph>.
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:ModuleEvent:module:get"><apiName>module</apiName><shortdesc>
+      The target, which is an instance of an
+      interface for a particular module.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>mx.modules:IModuleInfo</apiValueClassifier></apiValueDef><apiDesc>
+      The <codeph>target</codeph>, which is an instance of an
+      interface for a particular module.
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.events:Request"><apiName>Request</apiName><shortdesc>
+  This is an event that is expects its data property to be set by
+  a responding listener.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:Event</apiBaseClassifier></apiClassifierDef><apiDesc>
+  This is an event that is expects its data property to be set by
+  a responding listener.
+  
+  </apiDesc></apiClassifierDetail><apiConstructor id="mx.events:Request:Request"><apiName>Request</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The event type; indicates the action that caused the event.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bubbles</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Specifies whether the event can bubble up the display list hierarchy.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>cancelable</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Specifies whether the behavior associated with the event can be prevented.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Object"/><apiData>null</apiData><apiDesc>Name of a property or method or name of a manager to instantiate.
+     
+      </apiDesc></apiParam></apiConstructorDef><apiDesc>
+      Constructor. Does not return anything, but the <codeph>value</codeph> property can be modified
+      to represent a return value of a method.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="mx.events:Request:GET_PARENT_FLEX_MODULE_FACTORY_REQUEST"><apiName>GET_PARENT_FLEX_MODULE_FACTORY_REQUEST</apiName><shortdesc>
+      Dispatched from a sub-application or module to find the module factory of its parent
+      application or module.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>getParentFlexModuleFactoryRequest</apiData><apiType value="String"/></apiValueDef><apiDesc>
+      Dispatched from a sub-application or module to find the module factory of its parent
+      application or module. The recipient of this request should set the data property to 
+      their module factory.
+     
+      The message is dispatched from the content of a loaded module or application.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="mx.events:Request:value"><apiName>value</apiName><shortdesc>
+      Value of property, or array of parameters for method.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="10"/><apiPlatform description="" name="AIR" version="1.5"/><apiTool description="" name="Flex" version="4"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Object"/></apiValueDef><apiDesc>
+      Value of property, or array of parameters for method.       
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,14 @@
+\documentclass[12pt]{article}
+\usepackage{bussproofs}
+\title{AVM2 transformation to Boogie2}
+\author{A.~Elyasov}
+\begin{document}
+\maketitle
+
+\begin{prooftree}
+\def\fCenter{\ \vdash\ }
+\AxiomC$ $
+\UnaryInfC$ \fCenter $
+\end{prooftree}
+
+\end{document} 

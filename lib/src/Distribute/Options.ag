@@ -1,0 +1,5 @@
+--
+-- Provide context information to nodes
+--
+
+ATTR AllSwf [ opts : Options | | ]

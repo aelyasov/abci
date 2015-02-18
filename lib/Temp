@@ -1,0 +1,19 @@
+[ENTRIES
+fromList [
+(
+boogie1:BoogieTest1,
+TypeDescr {
+  tpName = boogie1:BoogieTest1, 
+  tpSuper = Just Object, 
+  tpInterfaces = [IEx1,IEx2], 
+  tpDynTraits = [
+    TpTraitDescr {tpTrName = CONST, tpTrBody = TrField {trFieldType = String}},
+    TpTraitDescr {tpTrName = xoo, tpTrBody = TrField {trFieldType = Boolean}},
+    TpTraitDescr {tpTrName = foo, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [TrParam {trParamName = Nothing, trParamType = Just String}], trSigReturn = Just String}}},
+    TpTraitDescr {tpTrName = funI1, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [], trSigReturn = Just void}}},
+    TpTraitDescr {tpTrName = funI2, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [], trSigReturn = Just void}}}
+  ], 
+  tpStaTraits = [TpTraitDescr {tpTrName = s, tpTrBody = TrField {trFieldType = String}}]}
+),
+(IEx1,TypeDescr {tpName = IEx1, tpSuper = Nothing, tpInterfaces = [], tpDynTraits = [TpTraitDescr {tpTrName = BoogieTest1.as$1:IEx1:funI1, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [], trSigReturn = Just void}}}], tpStaTraits = []}),
+(IEx2,TypeDescr {tpName = IEx2, tpSuper = Nothing, tpInterfaces = [], tpDynTraits = [TpTraitDescr {tpTrName = BoogieTest1.as$1:IEx2:funI2, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [], trSigReturn = Just void}}}], tpStaTraits = []})]]

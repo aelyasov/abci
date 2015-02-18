@@ -1,0 +1,20 @@
+[SymbolTables {
+tableInts = [(0,0)], 
+tableUInts = [(0,0)], 
+tableDoubles = [(0,0.0)], 
+tableStrings = [(0,""),(1,""),(2,"void"),(3,"int"),(4,"String"),(5,"Test1"),(6,"flash.display"),(7,"Sprite"),(8,"xoo"),(9,"Boolean"),(10,"prv"),(11,"foo"),(12,"s"),(13,"sstr"),(14,"Error"),(15,"e"),(16,"p"),(17,"y"),(18,"Object"),(19,"flash.events"),(20,"EventDispatcher"),(21,"DisplayObject"),(22,"InteractiveObject"),(23,"DisplayObjectContainer")], 
+tableNames = [(0,Name {nmQual = QualNs (Ref 0), nmStr = Just (Ref 0)}),(1,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 2)}),(2,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 3)}),(3,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 4)}),(4,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 5)}),(5,Name {nmQual = QualNs (Ref 2), nmStr = Just (Ref 7)}),(6,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 8)}),(7,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 9)}),(8,Name {nmQual = QualNs (Ref 4), nmStr = Just (Ref 10)}),(9,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 11)}),(10,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 12)}),(11,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 14)}),(12,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 15)}),(13,Name {nmQual = QualNs (Ref 5), nmStr = Just (Ref 16)}),(14,Name {nmQual = QualNs (Ref 5), nmStr = Just (Ref 17)}),(15,Name {nmQual = QualNs (Ref 1), nmStr = Just (Ref 18)}),(16,Name {nmQual = QualNs (Ref 6), nmStr = Just (Ref 20)}),(17,Name {nmQual = QualNs (Ref 2), nmStr = Just (Ref 21)}),(18,Name {nmQual = QualNs (Ref 2), nmStr = Just (Ref 22)}),(19,Name {nmQual = QualNs (Ref 2), nmStr = Just (Ref 23)})], tableSpaces = [(0,Namespace {nsKind = NamespaceKind_General, nsName = Ref 0}),(1,Namespace {nsKind = NamespaceKind_Package, nsName = Ref 1}),(2,Namespace {nsKind = NamespaceKind_Package, nsName = Ref 6}),(3,Namespace {nsKind = NamespaceKind_Protected, nsName = Ref 5}),(4,Namespace {nsKind = NamespaceKind_Private, nsName = Ref 0}),(5,Namespace {nsKind = NamespaceKind_Internal, nsName = Ref 1}),(6,Namespace {nsKind = NamespaceKind_Package, nsName = Ref 19})], tableSets = [(0,Nameset {nsSpaces = []})], 
+
+tableSigs = [(0,Sig {sigName = Nothing, sigReturn = Ref 0, sigParams = []}),(1,Sig {sigName = Nothing, sigReturn = Ref 1, sigParams = []}),(2,Sig {sigName = Just (Ref 11), sigReturn = Ref 2, sigParams = [SigParam {spName = Nothing, spType = Ref 3}]}),(3,Sig {sigName = Nothing, sigReturn = Ref 0, sigParams = []})], 
+
+tableClasses = [(0,ClassDescr {clName = Ref 4, clSuper = Just (Ref 5), clInterfaces = [], clDynTraits = [TraitDescr {trName = Ref 6, trData = TraitField {trType = Ref 7}},TraitDescr {trName = Ref 8, trData = TraitField {trType = Ref 2}},TraitDescr {trName = Ref 9, trData = TraitMethod {trMethod = Ref 2}}], clStaTraits = [TraitDescr {trName = Ref 10, trData = TraitField {trType = Ref 3}}]})], tableClasses1 = fromList [("",ClassDescr {clName = Ref 4, clSuper = Just (Ref 5), clInterfaces = [], clDynTraits = [TraitDescr {trName = Ref 6, trData = TraitField {trType = Ref 7}},TraitDescr {trName = Ref 8, trData = TraitField {trType = Ref 2}},TraitDescr {trName = Ref 9, trData = TraitMethod {trMethod = Ref 2}}], clStaTraits = [TraitDescr {trName = Ref 10, trData = TraitField {trType = Ref 3}}]})], tableTypeInfo = ENTRIES
+fromList [(Test1,TypeDescr {tpName = Test1, tpSuper = Just flash.display:Sprite, tpInterfaces = [], tpDynTraits = [TpTraitDescr {tpTrName = xoo, tpTrBody = TrField {trFieldType = Boolean}},TpTraitDescr {tpTrName = prv, tpTrBody = TrField {trFieldType = int}},TpTraitDescr {tpTrName = foo, tpTrBody = TrMethod {trMethodSig = TrMethodSig {trSigParams = [TrParam {trParamName = Nothing, trParamType = Just String}], trSigReturn = Just int}}}], tpStaTraits = [TpTraitDescr {tpTrName = s, tpTrBody = TrField {trFieldType = String}}]})], graphTypeInfo = digraph types {
+	margin = "0"
+	page = "11.7,8.3"
+	size = "8.3,11.7"
+	rotate = "90"
+	ratio = "fill"
+	1 [label = "Test1"]
+	2 [label = "flash.display:Sprite"]
+	1 -> 2 [label = "Extends"]
+}}]

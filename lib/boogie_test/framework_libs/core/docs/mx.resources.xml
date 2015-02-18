@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="mx.resources"><apiName>mx.resources</apiName><apiDetail/><apiClassifier id="mx.resources:Locale"><apiName>Locale</apiName><shortdesc>
+  The Locale class can be used to parse a locale String such as "en_US_MAC"
+  into its three parts: a language code, a country code, and a variant.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+  The Locale class can be used to parse a locale String such as <codeph>"en_US_MAC"</codeph>
+  into its three parts: a language code, a country code, and a variant.
+ 
+  <p>The localization APIs in the IResourceManager and IResourceBundle
+  interfaces use locale Strings rather than Locale instances,
+  so this class is seldom used in an application.</p>
+ 
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link><link href="mx.resources.xml#IResourceManager"><linktext>mx.resources.IResourceManager</linktext></link></related-links><apiConstructor id="mx.resources:Locale:Locale"><apiName>Locale</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>localeString</apiItemName><apiType value="String"/><apiDesc>A 1-, 2-, or 3-part locale String,
+      such as <codeph>"en"</codeph>, <codeph>"en_US"</codeph>, or <codeph>"en_US_MAC"</codeph>.
+      The parts are separated by underscore characters.
+      The first part is a two-letter lowercase language code
+      as defined by ISO-639, such as <codeph>"en"</codeph> for English.
+      The second part is a two-letter uppercase country code
+      as defined by ISO-3166, such as <codeph>"US"</codeph> for the United States.
+      The third part is a variant String, which can be used 
+      to optionally distinguish multiple locales for the same language and country.
+      It is sometimes used to indicate the operating system
+      that the locale should be used with, such as <codeph>"MAC"</codeph>, <codeph>"WIN"</codeph>, or <codeph>"UNIX"</codeph>.
+      
+      </apiDesc></apiParam></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="mx.resources:Locale:toString"><apiName>toString</apiName><shortdesc>
+      Returns the locale String that was used to construct
+      this Locale instance.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>Returns the locale String that was used to
+      construct this Locale instance.
+      
+      </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+      Returns the locale String that was used to construct
+      this Locale instance. For example:
+     
+      <pre>
+      var locale:Locale = new Locale("en_US_MAC");
+      trace(locale.toString()); // outputs "en_US_MAC"
+      </pre>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiValue id="mx.resources:Locale:country:get"><apiName>country</apiName><shortdesc>
+      The country code of this Locale instance.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+      The country code of this Locale instance. [Read-Only]
+     
+      <pre>
+      var locale:Locale = new Locale("en_US_MAC");
+      trace(locale.country); // outputs "US"
+      </pre>
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:Locale:language:get"><apiName>language</apiName><shortdesc>
+      The language code of this Locale instance.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+      The language code of this Locale instance. [Read-Only]
+     
+      <pre>
+      var locale:Locale = new Locale("en_US_MAC");
+      trace(locale.language); // outputs "en"
+      </pre>
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:Locale:variant:get"><apiName>variant</apiName><shortdesc>
+      The variant part of this Locale instance.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+      The variant part of this Locale instance. [Read-Only]
+     
+      <pre>
+      var locale:Locale = new Locale("en_US_MAC");
+      trace(locale.variant); // outputs "MAC"
+      </pre>
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.resources:IResourceManager"><apiName>IResourceManager</apiName><shortdesc>
+  The APIs of the IResourceManager interface 
+  provide localization support for Flex applications.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseInterface>flash.events:IEventDispatcher</apiBaseInterface><apiBaseClassifier/></apiClassifierDef><apiDesc>
+  The APIs of the IResourceManager interface 
+  provide localization support for Flex applications.
+ 
+  <p>There are three main concepts involved in localization:
+  locales, resources, and resource bundles.</p>
+ 
+  <p>A locale specifies a language and a country
+  for which your application has been localized.
+  For example, the locale <codeph>"en_US"</codeph>
+  specifies English as spoken in the United States.
+  (See the mx.resources.Locale class for more information.)</p>
+ 
+  <p>A resource is a named value that is locale-dependent.
+  For example, your application might have a resource
+  whose name is <codeph>"OPEN"</codeph>
+  and whose value for an English locale is <codeph>"Open"</codeph>
+  but whose value for a French locale is <codeph>"Ouvrir"</codeph>.</p>
+ 
+  <p>A resource bundle is a named group of resources
+  whose values have been localized for a particular locale.
+  A resource bundle is identified by the combination of its
+  <codeph>bundleName</codeph> and its <codeph>locale</codeph>,
+  and has a <codeph>content</codeph> object that contains
+  the name-value pairs for the bundle's resources.
+  See the documentation for mx.resources.IResourceBundle
+  for information about how you typically create resource
+  bundles from properties files.</p>
+ 
+  <p>A single ResourceManager object implementing the IResourceManager
+  interface manages multiple resource bundles, possibly for multiple
+  locales, and provides access to the resources that they contain.
+  For example, you can retrieve a specific resource as a String by calling
+  <codeph>resourceManager.getString(bundleName, resourceName)</codeph>.</p>
+ 
+  <p>All classes that extend UIComponent, Formatter, or Validator
+  have a <codeph>resourceManager</codeph> property
+  that provides a reference to the object implementing this interface.
+  Other classes can call <codeph>ResourceManager.getInstance()</codeph>
+  to obtain this object.</p>
+ 
+  <p>Resource retrieval methods such as <codeph>getString()</codeph>
+  search for resources in the locales specified
+  by the <codeph>localeChain</codeph> property.
+  By changing this property, you can make your application
+  suddenly use, for example, Japanese rather than English resources.</p>
+ 
+  <p>When your application starts, the ResourceManager is automatically
+  populated with whatever resource bundles were compiled
+  into the application.
+  If you create a code module, by default the resources that its classes
+  need are compiled into the module.
+  When the module is loaded into an application, any bundles that the
+  application does not already have are added to the ResourceManager.</p>
+ 
+  <p>You can compile "resource modules" which have only resources in them,
+  and load them with the <codeph>loadResourceModule()</codeph> method
+  of IResourceManager.
+  With resource modules, you can support multiple locales by loading
+  the resources you need at run time rather than compiling them into
+  your application.</p>
+ 
+  <p>Although the ResourceManager is normally populated with resource bundles
+  that were compiled into your application or loaded from modules,
+  you can also programmatically create resource bundles and add them
+  to the ResourceManager yourself with the <codeph>addResourceBundle()</codeph>
+  method.</p>
+ 
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#ResourceManager"><linktext>mx.resources.ResourceManager</linktext></link><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link><link href="mx.resources.xml#ResourceBundle"><linktext>mx.resources.ResourceBundle</linktext></link></related-links><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:addResourceBundle"><apiName>addResourceBundle</apiName><shortdesc>
+      Adds the specified ResourceBundle to the ResourceManager
+      so that its resources can be accessed by ResourceManager
+      methods such as getString().</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>resourceBundle</apiItemName><apiOperationClassifier>mx.resources:IResourceBundle</apiOperationClassifier><apiDesc>The resource bundle to be added.
+      </apiDesc></apiParam><apiParam><apiItemName>useWeakReference</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Determines if the ResourceManager
+      keeps a weak reference to the resource bundle.
+      If <codeph>useWeakReference</codeph> is <codeph>true</codeph> then the ResourceManager 
+      provides a weak reference to the resource bundle. When the 
+      caller chooses to use a weak reference it becomes the 
+      caller's responsibility to keep a hard reference the resource bundle 
+      so it is not garbaged collected prematurely. If <codeph>useWeakReference</codeph> is
+      <codeph>false</codeph>, the ResourceManager keeps a hard reference to the resource
+      bundle so it will not be garbage collected.
+      
+      <p>When a Flex sub-application or module automatically adds its compiled
+      resource bundles to the ResourceManager, it calls the <codeph>addResourceBundle()</codeph>
+      with <codeph>useWeakReference</codeph> set to <codeph>true</codeph>, to avoid becoming pinned in memory.
+      If you create resource bundles at runtime in a sub-application or 
+      module, you should do the same. You then need to hold on to these 
+      resource bundles with a hard reference to prevent them from being 
+      garbage collected.</p>
+      
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Adds the specified ResourceBundle to the ResourceManager
+      so that its resources can be accessed by ResourceManager
+      methods such as <codeph>getString()</codeph>.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:findResourceBundleWithResource"><apiName>findResourceBundleWithResource</apiName><shortdesc>
+      Searches the locales in the localeChain
+      for the specified resource and returns
+      the first resource bundle in which it is found.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The first ResourceBundle in the <codeph>localeChain</codeph>
+      that contains the specified resource, or <codeph>null</codeph>.
+      
+      </apiDesc><apiOperationClassifier>mx.resources:IResourceBundle</apiOperationClassifier></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>A bundle name such as <codeph>"MyResources"</codeph>.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Searches the locales in the <codeph>localeChain</codeph>
+      for the specified resource and returns
+      the first resource bundle in which it is found.
+      If the resource isn't found, this method returns <codeph>null</codeph>.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getBoolean"><apiName>getBoolean</apiName><shortdesc>
+      Gets the value of a specified resource as a Boolean.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as a Boolean,
+      or <codeph>false</codeph> if it is not found.
+      
+      </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as a Boolean.
+     
+      <p>This method first calls <codeph>getString()</codeph>
+      and converts the result to lowercase.
+      It then returns <codeph>true</codeph>
+      if the result was <codeph>"true"</codeph>.
+      and <codeph>false</codeph> otherwise.</p>
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>false</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getBundleNamesForLocale"><apiName>getBundleNamesForLocale</apiName><shortdesc>
+      Returns an Array of Strings specifying the bundle names
+      for all ResourceBundle objects that exist in the ResourceManager
+      and that belong to the specified locale.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An Array of bundle names.
+     
+      </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiDesc>A locale string such as <codeph>"en_US"</codeph>.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns an Array of Strings specifying the bundle names
+      for all ResourceBundle objects that exist in the ResourceManager
+      and that belong to the specified locale.
+     
+      <p>The order of bundle names in this Array is not specified.</p>
+     
+      </apiDesc></apiOperationDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getClass"><apiName>getClass</apiName><shortdesc>
+      Gets the value of a specified resource as a Class.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as a <codeph>Class</codeph>,
+      or <codeph>null</codeph> if it is not found.
+      
+      </apiDesc><apiType value="Class"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as a Class.
+     
+      <p>This method calls <codeph>getObject()</codeph>
+      and coerces it to type Class using the <codeph>as</codeph> operator.
+      The result will be <codeph>null</codeph> if the resource value
+      was not a class reference.
+      It is useful if you have written a lines such as</p>
+     
+      <pre>
+      IMAGE=Embed("image.jpg")
+      BUTTON_SKIN=ClassReference("skins.ButtonSkin_en_US")
+      </pre>
+     
+      <p>in a properties file and want to obtain
+      the Class that the <codeph>Embed()</codeph>
+      or <codeph>ClassReference()</codeph> directive produced.</p> 
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>null</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getInt"><apiName>getInt</apiName><shortdesc>
+      Gets the value of a specified resource as an int.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as an int,
+      or 0 if it is not found.
+      
+      </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as an int.
+     
+      <p>This method calls <codeph>getObject()</codeph>
+      and casts the result to an int.
+      It is useful if you have written a line such as:</p>
+     
+      <pre>
+      MINIMUM=5
+      </pre>
+     
+      <p>in a properties file and want to obtain the value
+      5 rather than <codeph>"5"</codeph>.</p> 
+     
+      <p>If the specified resource is not found,
+      this method returns 0.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getLocales"><apiName>getLocales</apiName><shortdesc>
+      Returns an Array of Strings specifying all locales for which
+      ResourceBundle objects exist in the ResourceManager.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An Array of locale Strings.
+      
+      </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+      Returns an Array of Strings specifying all locales for which
+      ResourceBundle objects exist in the ResourceManager.
+     
+      <p>The order of locales in this array is not specified.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getNumber"><apiName>getNumber</apiName><shortdesc>
+      Gets the value of a specified resource as a Number.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as a Number,
+      or <codeph>NaN</codeph> if it is not found.
+      
+      </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as a Number.
+     
+      <p>This method calls <codeph>getObject()</codeph>
+      and casts the result to a Number.
+      It is useful if you have written a line such as:</p>
+     
+      <pre>
+      LONGITUDE=170.3
+      </pre>
+     
+      <p>in a properties file and want to obtain the value
+      170.3 rather than <codeph>"170.3"</codeph>.</p> 
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>NaN</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getObject"><apiName>getObject</apiName><shortdesc>
+      Gets the value of a specified resource as an Object.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, exactly as it is stored
+      in the <codeph>content</codeph> Object,
+      or <codeph>undefined</codeph> if the resource is not found.
+      
+      </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as an Object.
+     
+      <p>The value is returned exactly as it is stored
+      in the <codeph>content</codeph> Object of the ResourceBundle,
+      with no conversion.
+      If the resource was compiled from a properties files,
+      the resource value in the <codeph>content</codeph> Object 
+      is always a String unless you used the <codeph>Embed()</codeph>
+      or <codeph>ClassReference()</codeph> directive, in which case
+      it is a Class.
+      Use the <codeph>getString()</codeph>, <codeph>getStringArray()</codeph>, 
+      <codeph>getNumber()</codeph>, <codeph>getInt()</codeph>
+      <codeph>getUint()</codeph>, <codeph>getBoolean()</codeph>, and
+      <codeph>getClass()</codeph> methods to convert the value
+      to more specific types.</p>
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>undefined</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getPreferredLocaleChain"><apiName>getPreferredLocaleChain</apiName><shortdesc>
+      Returns an Array of Strings specifying all locales for which
+      ResourceBundle objects exist in the ResourceManager,
+      ordered using  user preferences as reported by
+      Capabilities.language or
+      Capabilities.languages.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An Array of locale Strings.
+      
+      </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+      Returns an Array of Strings specifying all locales for which
+      ResourceBundle objects exist in the ResourceManager,
+      ordered using  user preferences as reported by
+      <codeph>Capabilities.language</codeph> or
+      <codeph>Capabilities.languages</codeph>.
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getResourceBundle"><apiName>getResourceBundle</apiName><shortdesc>
+      Returns a ResourceBundle with the specified locale
+      and bundleName that has been previously added
+      to the ResourceManager with addResourceBundle().</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The ResourceBundle with the specified <codeph>locale</codeph>
+      and <codeph>bundleName</codeph> if one exists; otherwise <codeph>null</codeph>.
+     
+      </apiDesc><apiOperationClassifier>mx.resources:IResourceBundle</apiOperationClassifier></apiReturn><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiDesc>A locale string such as <codeph>"en_US"</codeph>.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>A bundle name such as <codeph>"MyResources"</codeph>.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Returns a ResourceBundle with the specified <codeph>locale</codeph>
+      and <codeph>bundleName</codeph> that has been previously added
+      to the ResourceManager with <codeph>addResourceBundle()</codeph>.
+      If no such ResourceBundle exists, this method returns <codeph>null</codeph>.
+     
+      </apiDesc></apiOperationDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getStringArray"><apiName>getStringArray</apiName><shortdesc>
+      Gets the value of a specified resource as an Array of Strings.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as an Array of Strings,
+      or <codeph>null</codeph> if it is not found.
+      
+      </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as an Array of Strings.
+     
+      <p>This method assumes that the resource value is a String
+      containing a comma-separated list of items.
+      It calls the <codeph>getString()</codeph> method, splits the String
+      into items at the commas, and trims white space
+      before and after each item.
+      It is useful if you have written a line such as:</p>
+     
+      <pre>
+      COUNTRIES=India, China, Japan
+      </pre>
+     
+      <p>in a properties file and you want to obtain the value
+      <codeph>[ "India", "China", "Japan" ]</codeph>
+      rather than the value <codeph>"India, China, Japan"</codeph>.</p> 
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>null</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getString"><apiName>getString</apiName><shortdesc>
+      Gets the value of a specified resource as a String,
+      after substituting specified values for placeholders.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as a String,
+      or <codeph>null</codeph> if it is not found.
+      
+      </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>parameters</apiItemName><apiType value="Array"/><apiData>null</apiData><apiDesc>An Array of parameters that are
+      substituted for the placeholders.
+      Each parameter is converted to a String with the <codeph>toString()</codeph> method
+      before being substituted.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as a String,
+      after substituting specified values for placeholders.
+     
+      <p>This method calls <codeph>getObject()</codeph>
+      and then casts the result to a String.</p>
+     
+      <p>If a <codeph>parameters</codeph> Array is passed to this method,
+      the parameters in it are converted to Strings
+      and then substituted, in order, for the placeholders
+      <codeph>"{0}"</codeph>, <codeph>"{1}"</codeph>, and so on, in the String
+      before it is returned.</p>
+     
+      <p>If the specified resource is not found,
+      this method returns <codeph>null</codeph>.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:getUint"><apiName>getUint</apiName><shortdesc>
+      Gets the value of a specified resource as a uint.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The resource value, as a uint,
+      or 0 if it is not found.
+      
+      </apiDesc><apiType value="uint"/></apiReturn><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>The name of a resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>resourceName</apiItemName><apiType value="String"/><apiDesc>The name of a resource in the resource bundle.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A specific locale to be used for the lookup,
+      or <codeph>null</codeph> to search all locales
+      in the <codeph>localeChain</codeph>.
+      This parameter is optional and defaults to <codeph>null</codeph>;
+      you should seldom need to specify it.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Gets the value of a specified resource as a uint.
+     
+      <p>This method calls the <codeph>getObject()</codeph> method
+      and casts the result to a uint.
+      It is useful if you have written a line such as:</p>
+     
+      <pre>
+      MINIMUM=5
+      </pre>
+     
+      <p>in a properties file and want to obtain the value
+      5 rather than <codeph>"5"</codeph>.</p> 
+     
+      <p>If the specified resource is not found,
+      this method returns 0.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:initializeLocaleChain"><apiName>initializeLocaleChain</apiName><shortdesc>
+     Initializes the localeChain property of the ResourceManager
+     using an algorithm that compares the operating system's list of user-preferred
+     locales with the list of locales available in the SWF.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>compiledLocales</apiItemName><apiType value="Array"/><apiDesc>An Array of Strings specifying the locales
+     for which the SWF was compiled.
+    
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Initializes the <codeph>localeChain</codeph> property of the ResourceManager
+     using an algorithm that compares the operating system's list of user-preferred
+     locales with the list of locales available in the SWF.
+    
+     <p>For example, if the user has indicated in the operating system that she
+     prefers French, and the SWF was compiled for the locales en_US, fr_FR, and de_DE,
+     then the <codeph>localeChain</codeph> will be set so that the first locale in it
+     is fr_FR.</p>
+    
+     <p>This method is used only by classes that implement the IFlexModuleFactory interface.</p>
+    
+     </apiDesc></apiOperationDetail><related-links><link href="mx.core.xml#IFlexModuleFactory"><linktext>mx.core.IFlexModuleFactory</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:installCompiledResourceBundles"><apiName>installCompiledResourceBundles</apiName><shortdesc>
+     Creates instances of all ResourceBundle subclasses that were compiled into the SWF
+     and adds them to the ResourceManager.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An Array of the ResourceBundle instances that were created
+     and added to the ResourceManager.
+      
+     </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>applicationDomain</apiItemName><apiType value="flash.system:ApplicationDomain"/><apiDesc> The ApplicationDomain that is used to look up the resource bundle
+     classes by name.
+    
+     </apiDesc></apiParam><apiParam><apiItemName>locales</apiItemName><apiType value="Array"/><apiDesc>An Array of Strings that specify the locales for which the SWF was compiled.
+    
+     </apiDesc></apiParam><apiParam><apiItemName>bundleNames</apiItemName><apiType value="Array"/><apiDesc>An Array of Strings that specify the names of the resource bundles
+     that were compiled into the SWF.
+    
+     </apiDesc></apiParam><apiParam><apiItemName>useWeakReference</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>A flag that specifyies whether the resource bundles should be
+     intalled into the ResourceManager using a weak reference.
+    
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Creates instances of all ResourceBundle subclasses that were compiled into the SWF
+     and adds them to the ResourceManager.
+    
+     <p>For example, if the <codeph>locales</codeph> parameter is [ "en_US", "ja_JP" ]
+     and the <codeph>bundleNames</codeph> parameter is [ "core", "controls" ],
+     then four resource bundles will be installed.</p>
+    
+     <p>This method is used only by classes that implement the IFlexModuleFactory interface.</p>
+    
+     </apiDesc></apiOperationDetail><related-links><link href="mx.core.xml#IFlexModuleFactory"><linktext>mx.core.IFlexModuleFactory</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:loadResourceModule"><apiName>loadResourceModule</apiName><shortdesc>
+      Begins loading a resource module containing resource bundles.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object that is associated with this particular load operation
+      that dispatches <codeph>ResourceEvent.PROGRESS</codeph>,
+      <codeph>ResourceEvent.COMPLETE</codeph>, and
+      <codeph>ResourceEvent.ERROR</codeph> events.
+     
+      </apiDesc><apiType value="flash.events:IEventDispatcher"/></apiReturn><apiParam><apiItemName>url</apiItemName><apiType value="String"/><apiDesc>The URL from which to load the resource module.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>update</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>Whether to call
+      the <codeph>update()</codeph> method when the module finishes loading.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>applicationDomain</apiItemName><apiType value="flash.system:ApplicationDomain"/><apiData>null</apiData><apiDesc>The ApplicationDomain passed to the
+      <codeph>load()</codeph> method of the IModuleInfo class
+      that loads the resource module.
+      This parameter is optional and defaults to <codeph>null</codeph>.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>securityDomain</apiItemName><apiType value="flash.system:SecurityDomain"/><apiData>null</apiData><apiDesc>The SecurityDomain passed to the
+      <codeph>load()</codeph> method of the IModuleInfo class 
+      that loads the resource module.
+      This parameter is optional and defaults to <codeph>null</codeph>.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Begins loading a resource module containing resource bundles.
+     
+      <p>Each call to this method returns a new event-dispatching object
+      that you can use to learn how the loading is progressing
+      and whether it completes successfully or results in an error.
+      This object dispatches <codeph>ResourceEvent.PROGRESS</codeph>,
+      <codeph>ResourceEvent.COMPLETE</codeph>, and
+      <codeph>ResourceEvent.ERROR</codeph> events.</p>
+     
+      <p>When the module has been loaded, the resource bundles
+      are added to the ResourceManager, but the <codeph>localeChain</codeph>
+      is left unchanged.
+      If the <codeph>update</codeph> parameter is <codeph>true</codeph>,
+      the <codeph>update()</codeph> method will be called.</p>
+     
+      </apiDesc></apiOperationDetail><related-links><link href="mx.events.xml#ResourceEvent"><linktext>mx.events.ResourceEvent</linktext></link><link href="mx.resources.xml#IResourceManager/update()"><linktext>mx.resources.IResourceManager.update()</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:removeResourceBundle"><apiName>removeResourceBundle</apiName><shortdesc>
+      Removes the specified ResourceBundle from the ResourceManager
+      so that its resources can no longer be accessed by ResourceManager
+      methods such as getString().</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiDesc>A locale string such as <codeph>"en_US"</codeph>.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiDesc>A bundle name such as <codeph>"MyResources"</codeph>.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Removes the specified ResourceBundle from the ResourceManager
+      so that its resources can no longer be accessed by ResourceManager
+      methods such as <codeph>getString()</codeph>.
+     
+      </apiDesc></apiOperationDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:removeResourceBundlesForLocale"><apiName>removeResourceBundlesForLocale</apiName><shortdesc>
+      Removes all ResourceBundles for the specified locale
+      from the ResourceManager so that their resources
+      can no longer be accessed by ResourceManager methods
+      such as getString().</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiDesc>A locale string such as <codeph>"en_US"</codeph>.
+     
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Removes all ResourceBundles for the specified locale
+      from the ResourceManager so that their resources
+      can no longer be accessed by ResourceManager methods
+      such as <codeph>getString()</codeph>.
+     
+      </apiDesc></apiOperationDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link></related-links></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:unloadResourceModule"><apiName>unloadResourceModule</apiName><shortdesc>
+      Begins unloading a loaded resource module.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>url</apiItemName><apiType value="String"/><apiDesc>The URL that was used to load the resource module.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>update</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>Whether to call
+      the <codeph>update()</codeph> method when the module finishes unloading.
+      
+      </apiDesc></apiParam></apiOperationDef><apiDesc>
+      Begins unloading a loaded resource module.
+     
+      <p>When the module is unloaded, its resource bundles
+      are removed from the ResourceManager, but the <codeph>localeChain</codeph>
+      is left unchanged.
+      If the <codeph>update</codeph> parameter is <codeph>true</codeph>,
+      the <codeph>update()</codeph> method will be called.</p>
+     
+      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="mx.resources:IResourceManager:mx.resources:IResourceManager:update"><apiName>update</apiName><shortdesc>
+      Dispatches a change event from the
+      ResourceManager.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+      Dispatches a <codeph>change</codeph> event from the
+      ResourceManager.
+     
+      <p>This causes binding expressions to re-evaluate
+      if they involve the ResourceManager methods
+      <codeph>getObject()</codeph>, <codeph>getString()</codeph>, 
+      <codeph>getStringArray()</codeph>, <codeph>getNumber()</codeph>, 
+      <codeph>getInt()</codeph>, <codeph>getUint()</codeph>, 
+      <codeph>getBoolean()</codeph>, or <codeph>getClass()</codeph>.</p>
+     
+      <p>This also causes the <codeph>resourcesChanged()</codeph> method
+      of a UIComponent, Formatter, or Validator to execute.
+      Many components implement this method to update
+      their state based on the latest resources.</p>
+      
+      </apiDesc></apiOperationDetail></apiOperation><apiValue id="mx.resources:IResourceManager:mx.resources:IResourceManager:localeChain:get"><apiName>localeChain</apiName><shortdesc>
+      An Array of locale Strings, such as [ "en_US" ],
+      which specifies one or more locales to be searched for resources.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Array"/></apiValueDef><apiDesc>
+      An Array of locale Strings, such as <codeph>[ "en_US" ]</codeph>,
+      which specifies one or more locales to be searched for resources.
+      
+      <p>When you call the ResourceManager methods <codeph>getObject()</codeph>,
+      <codeph>getString()</codeph>, <codeph>getStringArray()</codeph>,
+      <codeph>getNumber()</codeph>, <codeph>getInt()</codeph>,
+      <codeph>getUint()</codeph>, <codeph>getBoolean()</codeph>, or
+      <codeph>getClass()</codeph> to get the value of a resource,
+      you specify a bundle name and a resource name,
+      but not a locale.
+      The ResourceManager starts with the first locale in the
+      <codeph>localeChain</codeph> and looks for a ResourceBundle
+      with the specified bundle name for that locale.
+      If such a ResourceBundle exists, and the specified resource
+      exists in it, then the value of that resource is returned.
+      Otherwise, the ResourceManager proceeds on to the other
+      locales in the <codeph>localeChain</codeph>.</p>
+     
+      <p>This scheme makes it possible to have locales that do not
+      necessarily contain a complete set of localized resources.
+      For example, if you are localizing your application for
+      Indian English rather than U.S. English, you need only
+      supply resources for the <codeph>en_IN</codeph> locale in which the
+      Indian spelling or usage differs from that in the U.S.,
+      and then set the <codeph>localeChain</codeph> property
+      to <codeph>[ "en_IN", "en_US" ]</codeph>.</p>
+     
+      <p>Many framework classes assume that they can always
+      obtain, from some locale, the resources that they expect,
+      and they will throw errors if they cannot do so.
+      Therefore, you must ensure that the <codeph>localeChain</codeph>
+      always contains a complete set of resources.
+      Unless you have done a complete localization of all the
+      framework's resources as well as your own application's
+      resources, you can keep the <codeph>"en_US"</codeph> locale
+      at the end of your <codeph>localeChain</codeph> to ensure this.</p>
+     
+      <p>Setting this property causes the ResourceManager to dispatch
+      a <codeph>"change"</codeph> Event.</p>
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.resources:ResourceManager"><apiName>ResourceManager</apiName><shortdesc>
+  This class is used to get a single instance of the IResourceManager
+  implementation.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+  This class is used to get a single instance of the IResourceManager
+  implementation.
+  The IResourceManager and IResourceBundle interfaces work together
+  to provide internationalization support for Flex applications.
+ 
+  <p>A single instance of an IResourceManager implementation
+  manages all localized resources
+  for a Flex application.</p>
+  
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#IResourceManager"><linktext>mx.resources.IResourceManager</linktext></link><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link></related-links><apiOperation id="mx.resources:ResourceManager:getInstance"><apiName>getInstance</apiName><shortdesc>
+      Gets the single instance of the ResourceManager class.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>An object implementing IResourceManager.
+      
+      </apiDesc><apiOperationClassifier>mx.resources:IResourceManager</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+      Gets the single instance of the ResourceManager class.
+      This object manages all localized resources for a Flex application.
+      
+      </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="mx.resources:ResourceBundle"><apiName>ResourceBundle</apiName><shortdesc>
+  Provides an implementation of the IResourceBundle interface.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>mx.resources:IResourceBundle</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+  Provides an implementation of the IResourceBundle interface.
+  The IResourceManager and IResourceBundle interfaces work together
+  to provide internationalization support for Flex applications.
+ 
+  <p>A Flex application typically has multiple instances of this class,
+  all managed by a single instance of the ResourceManager class.
+  It is possible to have ResourceBundle instances for multiple locales,
+  one for each locale. There can be multiple ResourceBundle instances with
+  different bundle names.</p>
+  
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#IResourceBundle"><linktext>mx.resources.IResourceBundle</linktext></link><link href="mx.resources.xml#IResourceManager"><linktext>mx.resources.IResourceManager</linktext></link></related-links><apiConstructor id="mx.resources:ResourceBundle:ResourceBundle"><apiName>ResourceBundle</apiName><shortdesc>
+      Constructor.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>locale</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A locale string, such as <codeph>"en_US"</codeph>.
+     
+      </apiDesc></apiParam><apiParam><apiItemName>bundleName</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>A name that identifies this bundle,
+      such as <codeph>"MyResources"</codeph>.
+      
+      </apiDesc></apiParam></apiConstructorDef><apiDesc>
+      Constructor.
+     
+      </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="mx.resources:ResourceBundle:protected:getContent"><apiName>getContent</apiName><shortdesc>
+      When a properties file is compiled into a resource bundle,
+      the MXML compiler autogenerates a subclass of ResourceBundle.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiOperationDetail><apiOperationDef><apiAccess value="protected"/><apiReturn><apiDesc>The Object that contains key-value pairs for the bundle's resources.
+      
+      </apiDesc><apiType value="Object"/></apiReturn></apiOperationDef><apiDesc>
+      When a properties file is compiled into a resource bundle,
+      the MXML compiler autogenerates a subclass of ResourceBundle.
+      The subclass overrides this method to return an Object
+      that contains key-value pairs for the bundle's resources.
+     
+      <p>If you create your own ResourceBundle instances,
+      you can set the key-value pairs on the <codeph>content</codeph> object.</p>
+      
+      </apiDesc></apiOperationDetail></apiOperation><apiValue id="mx.resources:ResourceBundle:bundleName:get"><apiName>bundleName</apiName><shortdesc conref="mx.resources.IResourceBundle#bundleName">
+      </shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc conref="mx.resources.IResourceBundle#bundleName">
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:ResourceBundle:content:get"><apiName>content</apiName><shortdesc conref="mx.resources.IResourceBundle#content">
+      </shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Object"/></apiValueDef><apiDesc conref="mx.resources.IResourceBundle#content">
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:ResourceBundle:locale:get"><apiName>locale</apiName><shortdesc conref="mx.resources.IResourceBundle#locale">
+      </shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc conref="mx.resources.IResourceBundle#locale">
+      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="mx.resources:IResourceBundle"><apiName>IResourceBundle</apiName><shortdesc>
+  The IResourceBundle and IResourceManager interfaces work together
+  to provide localization support for Flex applications.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+  The IResourceBundle and IResourceManager interfaces work together
+  to provide localization support for Flex applications.
+ 
+  <p>There are three main concepts involved in localization:
+  locales, resources, and resource bundles.</p>
+ 
+  <p>A locale specifies a language and a country
+  for which your application has been localized.
+  For example, the locale <codeph>"en_US"</codeph>
+  specifies English as spoken in the United States.
+  (See the mx.resources.Locale class for more information.)</p>
+ 
+  <p>A resource is a named value that is locale-dependent.
+  For example, your application might have a resource
+  whose name is <codeph>"OPEN"</codeph>
+  and whose value for an English locale is <codeph>"Open"</codeph>
+  but whose value for a French locale is <codeph>"Ouvrir"</codeph>.</p>
+ 
+  <p>A resource bundle is a named group of resources
+  whose values have been localized for a particular locale.
+  A resource bundle is identified by the combination of its
+  <codeph>bundleName</codeph> and its <codeph>locale</codeph>,
+  and has a <codeph>content</codeph> Object that contains
+  the name-value pairs for the bundle's resources.</p>
+ 
+  <p>The IResourceBundle interface represents a specific resource bundle.
+  However, most applications will only need to use IResourceManager.
+  A single ResourceManager object implementing this interface
+  manages multiple resource bundles, possibly for multiple locales,
+  and provides access to the resources that they contain.
+  For example, you can retrieve a specific resource as a String by calling
+  <codeph>resourceManager.getString(bundleName, resourceName)</codeph>.
+  By changing the <codeph>localeChain</codeph> property of the ResourceManager,
+  you can change which resource bundles are searched for resource values.</p>
+ 
+  <p>Generally, you do not create resource bundles yourself;
+  instead, they are usually compiled from ~~.properties files.
+  A properties file named MyResources.properties
+  produces a resource bundle with <codeph>"MyResources"</codeph>
+  for its <codeph>bundleName</codeph>.
+  You generally produce multiple versions of each properties file,
+  one for each locale that your application supports.</p>
+ 
+  <p>Flex properties files are similar to Java properties files,
+  except that they also support MXML's <codeph>Embed()</codeph>
+  and <codeph>ClassReference()</codeph> directives.
+  These directives work the same way in a properties file
+  as they do in a CSS file, producing class references.
+  Also, the encoding for Flex properties files
+  is always assumed to be UTF-8.</p>
+ 
+  <p>The Flex framework's resources have been localized
+  for U.S. English (the <codeph>"en_US"</codeph> locale) and
+  for Japanese (the <codeph>"ja_JP"</codeph> locale). 
+  The framework resources are organized into multiple bundles
+  corresponding to framework packages; for example, the "formatters"
+  bundle is used by classes in the mx.formatters package.
+  (There is also a "SharedResources" bundle for resources used by
+  multiple packages.)</p>
+ 
+  <p>The properties files for the framework resources,
+  such as formatters.properties, can be found in the
+  frameworks/projects/framework/bundles/{locale}/src directories
+  of the Flex SDK.
+  Your applications normally link against the Flex framework
+  as a precompiled library, framework.swc,
+  in the frameworks/libs directory.
+  This library has no resources in it.
+  Instead, the framework resources have been compiled into separate
+  resource bundle libraries such as framework_rb.swc.
+  These are located in the frameworks/locales/{locale} directories
+  and your application must also link in one or more of these.</p>
+ 
+  <p>You are free to organize your application's own resources
+  into whatever bundles you find convenient.
+  If you localize your application for locales
+  other than <codeph>"en_US"</codeph> and <codeph>"ja_JP"</codeph>,
+  you should localize the framework's properties files for those locales
+  as well and compile additional resource bundle libaries for them.</p>
+ 
+  <p>When your application starts, the ResourceManager is automatically
+  populated with whatever resource bundles were compiled
+  into the application.
+  If you create a code module, by default the resources that its classes
+  need are compiled into the module.
+  When the module is loaded into an application, any bundles that the
+  application does not already have are added to the ResourceManager.</p>
+ 
+  <p>You can compile "resource modules" that have only resources in them,
+  and load them with the <codeph>loadResourceModule()</codeph> method
+  of the ResourceManager.
+  With resource modules, you can support multiple locales by loading
+  the resources you need at run time rather than compiling them into
+  your application.</p>
+ 
+  <p>Although the ResourceManager is normally populated with resource bundles
+  that were compiled into your application or loaded from modules,
+  you can also programmatically create resource bundles and add them
+  to the ResourceManager yourself with the <codeph>addResourceBundle()</codeph>
+  method.</p>
+ 
+  </apiDesc></apiClassifierDetail><related-links><link href="mx.resources.xml#ResourceBundle"><linktext>mx.resources.ResourceBundle</linktext></link><link href="mx.resources.xml#IResourceManager"><linktext>mx.resources.IResourceManager</linktext></link><link href="mx.resources.xml#ResourceManager"><linktext>mx.resources.ResourceManager</linktext></link></related-links><apiValue id="mx.resources:IResourceBundle:mx.resources:IResourceBundle:bundleName:get"><apiName>bundleName</apiName><shortdesc>
+      A name that identifies this resource bundle,
+      such as "MyResources".</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+      A name that identifies this resource bundle,
+      such as <codeph>"MyResources"</codeph>.
+     
+      <p>This read-only property is set
+      when a resource bundle is constructed.</p>
+     
+      <p>Resource bundles that are automatically created from compiled
+      properties files have bundle names based on the names of those files.
+      For example, a properties file named MyResources.properties
+      will produce a resource bundle whose <codeph>bundleName</codeph>
+      is <codeph>"MyResources"</codeph>.</p>
+     
+      <p>The ResourceManager can manage multiple bundles with the same
+      <codeph>bundleName</codeph> as long as they have different values
+      for their <codeph>locale</codeph> property.</p>
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:IResourceBundle:mx.resources:IResourceBundle:content:get"><apiName>content</apiName><shortdesc>
+      An object containing key-value pairs for the resources
+      in this resource bundle.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Object"/></apiValueDef><apiDesc>
+      An object containing key-value pairs for the resources
+      in this resource bundle.
+     
+      <p>In general, you should access resources by using IResourceManager
+      methods such as <codeph>getString()</codeph>, rather than directly
+      accessing them in a resource bundle.
+      However, if you are programmatically creating your own
+      resource bundles, you can initialize them with resources,
+      as follows:</p>
+     
+      <pre>
+      var rb:IResourceBundle = new ResourceBundle("fr_FR", "MyResources");
+      rb.content["LANGUAGE"] = "Francais";
+      rb.content["GREETING"] = "Bonjour";
+      </pre>
+     
+      <p>When a resource bundle is produced by compiling a properties
+      file, its resource values are either of type String or Class.
+      For example, if the properties file contains</p>
+     
+      <pre>
+      LANGUAGE=English
+      MINIMUM_AGE=18
+      ENABLED=true
+      LOGO=Embed("logo.png")
+      </pre>
+     
+      <p>then the value of the <codeph>LANGUAGE</codeph> resource
+      is the String <codeph>"English"</codeph>,
+      the value of the <codeph>MINIMUM_AGE</codeph> resource
+      is the String <codeph>"18"</codeph>,
+      the value of the <codeph>ENABLED</codeph> resource
+      is the String <codeph>"true"</codeph>,
+      and the value of the <codeph>LOGO</codeph> resource
+      is a Class that represents the embedded PNG file.</p>
+     
+      <p>You can use IResourceManager methods such as <codeph>getInt()</codeph>
+      and <codeph>getBoolean()</codeph> to convert resource strings like
+      <codeph>"18"</codeph> and <codeph>"true"</codeph> into the type
+      that your code expects.</p>
+      
+      </apiDesc></apiValueDetail></apiValue><apiValue id="mx.resources:IResourceBundle:mx.resources:IResourceBundle:locale:get"><apiName>locale</apiName><shortdesc>
+      The locale for which this bundle's resources have been localized.</shortdesc><prolog><asMetadata><apiVersion><apiLanguage version="3.0"/><apiPlatform description="" name="Flash" version="9"/><apiPlatform description="" name="AIR" version="1.1"/><apiTool description="" name="Flex" version="3"/></apiVersion></asMetadata></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+      The locale for which this bundle's resources have been localized.
+      This is a String such as <codeph>"en_US"</codeph> for U.S. English.
+     
+      <p>This read-only property is set
+      when a resource bundle is constructed.</p>
+     
+      <p>Resource bundles that are automatically created from compiled
+      properties files have locales based on the
+      <codeph>-compiler.locale</codeph> option of the mxmlc or compc compilers.
+      For example, suppose that you compile your application with the option
+      <codeph>-compiler.locale=en_US,ja_JP</codeph> and that you have specified
+      <codeph>-compiler.source-path=resources/{locale}</codeph> so that
+      your application's resources, located in
+      resources/en_US/MyResources.properties and
+      resources/ja_JP/MyResources.properties, are found.
+      Then your application will have two resource bundles
+      whose <codeph>bundleName</codeph> is <codeph>"MyResources"</codeph>,
+      one whose <codeph>locale</codeph> is <codeph>"en_US"</codeph> 
+      and one whose <codeph>locale</codeph> is <codeph>"ja_JP"</codeph>.</p>
+      
+      </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

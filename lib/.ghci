@@ -1,0 +1,2 @@
+:set -isrc:dist/build/:.
+:load TestIt

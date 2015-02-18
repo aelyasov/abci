@@ -1,0 +1,7 @@
+Parse error:
+  IntMap a -   
+            ^
+(line 1, column 11):
+unexpected end of input
+expecting letter
+Bad symbol

@@ -1,0 +1,288 @@
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  returnvoid",shape="box"];
+u3[label="3     :  < 3 > -----",shape="box"];
+u106[label="106   :  < 2 > beginblock 1",shape="box"];
+u107[label="107   :  < 1 > beginbody",shape="box"];
+u116[label="116   :  < 2 > endblock",shape="box"];
+u117[label="117   :  < 0 > endbody",shape="box"];
+u_1 -> u107;
+u107 -> u106;
+u106 -> u0;
+u0 -> u1;
+u1 -> u116;
+u116 -> u117;
+u117 -> u2;
+u2 -> u3;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  getlocal_0",shape="box"];
+u3[label="3     :  constructsuper args: 0",shape="box"];
+u5[label="5     :  findpropstrict Obj",shape="box"];
+u7[label="7     :  constructprop Obj args: 0",shape="box"];
+u10[label="10    :  coerce Obj",shape="box"];
+u12[label="12    :  setlocal_1",shape="box"];
+u13[label="13    :  getlocal_1",shape="box"];
+u14[label="14    :  pushbyte 10",shape="box"];
+u16[label="16    :  pushbyte 20",shape="box"];
+u18[label="18    :  callpropvoid f args: 2",shape="box"];
+u21[label="21    :  returnvoid",shape="box"];
+u22[label="22    :  < 6 > -----",shape="box"];
+u144[label="144   :  < 5 > beginblock 2",shape="box"];
+u145[label="145   :  < 4 > beginbody",shape="box"];
+u194[label="194   :  < 5 > endblock",shape="box"];
+u195[label="195   :  < 0 > endbody",shape="box"];
+u_1 -> u145;
+u145 -> u144;
+u144 -> u0;
+u0 -> u1;
+u1 -> u2;
+u2 -> u3;
+u3 -> u5;
+u5 -> u7;
+u7 -> u10;
+u10 -> u12;
+u12 -> u13;
+u13 -> u14;
+u14 -> u16;
+u16 -> u18;
+u18 -> u194;
+u194 -> u195;
+u195 -> u21;
+u21 -> u22;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  getscopeobject index: 0",shape="box"];
+u4[label="4     :  getlex Object",shape="box"];
+u6[label="6     :  pushscope",shape="box"];
+u7[label="7     :  getlex Object",shape="box"];
+u9[label="9     :  newclass Main",shape="box"];
+u11[label="11    :  popscope",shape="box"];
+u12[label="12    :  initproperty Main",shape="box"];
+u14[label="14    :  returnvoid",shape="box"];
+u15[label="15    :  < 9 > -----",shape="box"];
+u130[label="130   :  < 8 > beginblock 3",shape="box"];
+u131[label="131   :  < 7 > beginbody",shape="box"];
+u168[label="168   :  < 8 > endblock",shape="box"];
+u169[label="169   :  < 0 > endbody",shape="box"];
+u_1 -> u131;
+u131 -> u130;
+u130 -> u0;
+u0 -> u1;
+u1 -> u2;
+u2 -> u4;
+u4 -> u6;
+u6 -> u7;
+u7 -> u9;
+u9 -> u11;
+u11 -> u12;
+u12 -> u168;
+u168 -> u169;
+u169 -> u14;
+u14 -> u15;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  returnvoid",shape="box"];
+u3[label="3     :  < 12 > -----",shape="box"];
+u106[label="106   :  < 11 > beginblock 4",shape="box"];
+u107[label="107   :  < 10 > beginbody",shape="box"];
+u116[label="116   :  < 11 > endblock",shape="box"];
+u117[label="117   :  < 0 > endbody",shape="box"];
+u_1 -> u107;
+u107 -> u106;
+u106 -> u0;
+u0 -> u1;
+u1 -> u116;
+u116 -> u117;
+u117 -> u2;
+u2 -> u3;
+
+}
+digraph G {
+u0[label="0     :  findpropstrict h",shape="box"];
+u2[label="2     :  getlex x",shape="box"];
+u4[label="4     :  pushbyte 30",shape="box"];
+u6[label="6     :  callprop h args: 2",shape="box"];
+u9[label="9     :  returnvalue",shape="box"];
+u10[label="10    :  < 15 > -----",shape="box"];
+u120[label="120   :  < 14 > beginblock 5",shape="box"];
+u121[label="121   :  < 13 > beginbody",shape="box"];
+u138[label="138   :  < 14 > endblock",shape="box"];
+u139[label="139   :  < 0 > endbody",shape="box"];
+u_1 -> u121;
+u121 -> u120;
+u120 -> u0;
+u0 -> u2;
+u2 -> u4;
+u4 -> u6;
+u6 -> u138;
+u138 -> u139;
+u139 -> u9;
+u9 -> u10;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  newactivation",shape="box"];
+u3[label="3     :  dup",shape="box"];
+u4[label="4     :  setlocal_3",shape="box"];
+u5[label="5     :  pushscope",shape="box"];
+u6[label="6     :  getscopeobject index: 1",shape="box"];
+u8[label="8     :  getlocal_1",shape="box"];
+u9[label="9     :  setslot 1",shape="box"];
+u11[label="11    :  getscopeobject index: 1",shape="box"];
+u13[label="13    :  getlocal_2",shape="box"];
+u14[label="14    :  setslot 2",shape="box"];
+u16[label="16    :  getscopeobject index: 1",shape="box"];
+u18[label="18    :  newfunction (int):void",shape="box"];
+u20[label="20    :  coerce Function",shape="box"];
+u22[label="22    :  setslot 3",shape="box"];
+u24[label="24    :  getscopeobject index: 1",shape="box"];
+u26[label="26    :  getslot 3",shape="box"];
+u28[label="28    :  getglobalscope",shape="box"];
+u29[label="29    :  getscopeobject index: 1",shape="box"];
+u31[label="31    :  getslot 2",shape="box"];
+u33[label="33    :  call args: 1",shape="box"];
+u35[label="35    :  pop",shape="box"];
+u36[label="36    :  returnvoid",shape="box"];
+u37[label="37    :  < 18 > -----",shape="box"];
+u174[label="174   :  < 17 > beginblock 6",shape="box"];
+u175[label="175   :  < 16 > beginbody",shape="box"];
+u268[label="268   :  < 17 > endblock",shape="box"];
+u269[label="269   :  < 0 > endbody",shape="box"];
+u_1 -> u175;
+u175 -> u174;
+u174 -> u0;
+u0 -> u1;
+u1 -> u2;
+u2 -> u3;
+u3 -> u4;
+u4 -> u5;
+u5 -> u6;
+u6 -> u8;
+u8 -> u9;
+u9 -> u11;
+u11 -> u13;
+u13 -> u14;
+u14 -> u16;
+u16 -> u18;
+u18 -> u20;
+u20 -> u22;
+u22 -> u24;
+u24 -> u26;
+u26 -> u28;
+u28 -> u29;
+u29 -> u31;
+u31 -> u33;
+u33 -> u35;
+u35 -> u268;
+u268 -> u269;
+u269 -> u36;
+u36 -> u37;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  getlocal_0",shape="box"];
+u3[label="3     :  constructsuper args: 0",shape="box"];
+u5[label="5     :  returnvoid",shape="box"];
+u6[label="6     :  < 21 > -----",shape="box"];
+u112[label="112   :  < 20 > beginblock 7",shape="box"];
+u113[label="113   :  < 19 > beginbody",shape="box"];
+u130[label="130   :  < 20 > endblock",shape="box"];
+u131[label="131   :  < 0 > endbody",shape="box"];
+u_1 -> u113;
+u113 -> u112;
+u112 -> u0;
+u0 -> u1;
+u1 -> u2;
+u2 -> u3;
+u3 -> u130;
+u130 -> u131;
+u131 -> u5;
+u5 -> u6;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  findpropstrict Obj",shape="box"];
+u4[label="4     :  getlex Object",shape="box"];
+u6[label="6     :  pushscope",shape="box"];
+u7[label="7     :  getlex Object",shape="box"];
+u9[label="9     :  newclass Obj",shape="box"];
+u11[label="11    :  popscope",shape="box"];
+u12[label="12    :  initproperty Obj",shape="box"];
+u14[label="14    :  returnvoid",shape="box"];
+u15[label="15    :  < 24 > -----",shape="box"];
+u130[label="130   :  < 23 > beginblock 8",shape="box"];
+u131[label="131   :  < 22 > beginbody",shape="box"];
+u168[label="168   :  < 23 > endblock",shape="box"];
+u169[label="169   :  < 0 > endbody",shape="box"];
+u_1 -> u131;
+u131 -> u130;
+u130 -> u0;
+u0 -> u1;
+u1 -> u2;
+u2 -> u4;
+u4 -> u6;
+u6 -> u7;
+u7 -> u9;
+u9 -> u11;
+u11 -> u12;
+u12 -> u168;
+u168 -> u169;
+u169 -> u14;
+u14 -> u15;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  returnvoid",shape="box"];
+u3[label="3     :  < 27 > -----",shape="box"];
+u106[label="106   :  < 26 > beginblock 9",shape="box"];
+u107[label="107   :  < 25 > beginbody",shape="box"];
+u116[label="116   :  < 26 > endblock",shape="box"];
+u117[label="117   :  < 0 > endbody",shape="box"];
+u_1 -> u107;
+u107 -> u106;
+u106 -> u0;
+u0 -> u1;
+u1 -> u116;
+u116 -> u117;
+u117 -> u2;
+u2 -> u3;
+
+}
+digraph G {
+u0[label="0     :  getlocal_0",shape="box"];
+u1[label="1     :  pushscope",shape="box"];
+u2[label="2     :  returnvoid",shape="box"];
+u3[label="3     :  < 30 > -----",shape="box"];
+u106[label="106   :  < 29 > beginblock 10",shape="box"];
+u107[label="107   :  < 28 > beginbody",shape="box"];
+u116[label="116   :  < 29 > endblock",shape="box"];
+u117[label="117   :  < 0 > endbody",shape="box"];
+u_1 -> u107;
+u107 -> u106;
+u106 -> u0;
+u0 -> u1;
+u1 -> u116;
+u116 -> u117;
+u117 -> u2;
+u2 -> u3;
+
+}
